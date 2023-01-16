@@ -71,9 +71,9 @@ export class SesionPage implements OnInit {
 
   async presentToast(mensaje: string) {
     const toast = await this.toastController.create({
-      message: 'Contraseña o Nombre incorrectos, intente nuevamente',
+      message: mensaje,
       duration: 2000
-
+  
     });
     toast.present();
   }
