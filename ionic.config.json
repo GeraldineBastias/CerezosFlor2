@@ -1,0 +1,7 @@
+{
+  "name": "CerezosFlor",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
