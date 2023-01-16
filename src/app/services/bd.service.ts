@@ -18,10 +18,10 @@ export class BdService {
   public database: SQLiteObject = new SQLiteObject(null);
 
   //variables para las tablas/ agregar la imagen en la tabla de comida
-
-  tablaUsuario: string = "CREATE TABLE IF NOT EXISTS usuario(idusuario INTEGER PRIMARY KEY autoincrement, nombre VARCHAR (25), clave VARCHAR (15), foto BLOB , correo VARCHAR (50), direccion VARCHAR (75),fk_id_rol INTEGER, FOREIGN KEY(fk_id_rol) REFERENCES rol(idrol));";
-
   tablaRol: string = "CREATE TABLE IF NOT EXISTS rol(idrol INTEGER PRIMARY KEY , nombrerol VARCHAR (30) );";
+
+  tablaUsuario: string = "CREATE TABLE IF NOT EXISTS usuario(idusuario INTEGER PRIMARY KEY autoincrement, nombre VARCHAR (50), clave VARCHAR (30), foto VARCHAR (150) , correo VARCHAR (50), direccion VARCHAR (75),fk_id_rol INTEGER, FOREIGN KEY(fk_id_rol) REFERENCES rol(idrol));";
+
 
   tablaComida: string = "CREATE TABLE IF NOT EXISTS comida(id INTEGER PRIMARY KEY autoincrement, titulo VARCHAR(50), texto VARCHAR (100), fk_id_tipocomida INTEGER, FOREIGN KEY(fk_id_tipocomida) REFERENCES comida(idtipocomida));";
 
@@ -44,7 +44,7 @@ export class BdService {
 
   dueno: string = "INSERT or IGNORE INTO rol(idrol, nombrerol) VALUES (2, 'Dueno');";
 
-  usuario1: string = "INSERT or IGNORE INTO usuario(idusuario,nombre,clave,correo,direccion,fk_id_rol) VALUES ( 1, Ulises, 12345, ulise@gmail.com, calle norte, 1 );";
+  usuario1: string = "INSERT or IGNORE INTO usuario(idusuario,nombre,clave,foto,correo,direccion,fk_id_rol) VALUES ( 1, 'Ulises', '12345', '', 'ulise@gmail.com', 'calle norte', 1 );";
 
   //variable para guardar los registros de cada tabla de BD
   s: Comida[] = [];
@@ -95,7 +95,7 @@ export class BdService {
 
       //creamos la BD
       this.sqlite.create({
-        name: 'delip.db',
+        name: 'delipo.db',
         location: 'default'
       })
         .then((db: SQLiteObject) => {
@@ -117,21 +117,24 @@ export class BdService {
   async crearTablas() {
     try {
       //ejecutar creacion de tablas
-      await this.database.executeSql(this.tablaComida, []);
-      this.presentAlert("error tabla 1")
-      await this.database.executeSql(this.tablaUsuario, []);
-      this.presentAlert("error tabla 2")
       await this.database.executeSql(this.tablaRol, []);
       this.presentAlert("error tabla 3")
-
-      //ejecutar insert por defecto
-      await this.database.executeSql(this.insertComida, []);
-      this.presentAlert("error insert 1")
       await this.database.executeSql(this.cliente, []);
       this.presentAlert("error insert 2")
       await this.database.executeSql(this.dueno, []);
       this.presentAlert("error insert 3")
-      //await this.database.executeSql(this.usuario1, []);
+
+      await this.database.executeSql(this.tablaComida, []);
+      this.presentAlert("error tabla 1")
+      await this.database.executeSql(this.tablaUsuario, []);
+      this.presentAlert("error tabla 2")
+      
+
+      //ejecutar insert por defecto
+      await this.database.executeSql(this.insertComida, []);
+      this.presentAlert("error insert 1")
+      
+      await this.database.executeSql(this.usuario1, []);
       this.presentAlert("error insert 4")
       //llamar al metodo para select de mi tabla principal
       this.buscarComidas();
@@ -189,14 +192,14 @@ export class BdService {
   }
 
 
-  agregarUsuario2(idusuario: number, nombre: string, correo: string, clave: string, fk_id_rol: number = 1) {
-    let data = [idusuario, nombre, correo, clave, fk_id_rol,];
-    return this.database.executeSql('INSERT or IGNORE INTO  usuario (idusuario, nombre, correo, clave, fk_id_rol,) VALUES (?, ?, ?, ?, ?)', data).then(res => {
+  agregarUsuario(idusuario: number, nombre: string, correo: string,foto: string,direccion: string, clave: string, fk_id_rol: number = 1) {
+    let data = [idusuario, nombre, clave, foto, correo, direccion , fk_id_rol,];
+    return this.database.executeSql('INSERT or IGNORE INTO  usuario (idusuario, nombre, clave, foto, correo, direccion, fk_id_rol,) VALUES (?, ?, ?, ?, ?)', data).then(res => {
       this.buscarUsuario();
     });
   }
 
-  agregarUsuario(idusuario: number, nombre: string,  clave: string,  fk_id_rol: number = 1) {
+  agregarUsuario2(idusuario: number, nombre: string,  clave: string,  fk_id_rol: number = 1) {
     let data = [idusuario, nombre, clave, fk_id_rol];
     return this.database.executeSql('INSERT or IGNORE INTO  usuario (idusuario, nombre, clave, fk_id_rol) VALUES (?, ?, ?, ?)', data).then(res => {
       this.buscarUsuario();
@@ -229,13 +232,12 @@ export class BdService {
   //agregar este en el ts de agregarcomida
   insertarComida(titulo: string, texto: string) {
     let data = [titulo, texto];
-    //agregar la foto 
     return this.database.executeSql('INSERT INTO comida(titulo,texto) VALUES (?,?)', data).then(res => {
       this.buscarComidas();
       this.presentAlert("Comida Registrada");
     })
   }
-  //agregar la foto
+  //modificar la comida
   modificarComida(id: number, titulo: string, texto: string) {
     let data = [titulo, texto, id];
     return this.database.executeSql('UPDATE comida SET titulo= ?,texto= ? WHERE id = ?', data).then(res2 => {

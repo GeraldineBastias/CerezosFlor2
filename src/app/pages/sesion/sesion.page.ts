@@ -35,6 +35,14 @@ export class SesionPage implements OnInit {
 
 
   ngOnInit() {
+    this.bd.dbState().subscribe((res) => {
+      if (res) {
+        this.bd.fetchUser().subscribe(item => {
+          this.Usuario = item;
+        })
+      }
+    })
+
   }
 
   async iniciarSesion() {

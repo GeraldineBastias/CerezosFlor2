@@ -15,7 +15,7 @@
         <ion-item routerLink="/perfilclie" style="color:rgb(189, 189, 189);"><ion-icon name="person" style="font-size: 23px; color: #f4c9da;"></ion-icon> Perfil</ion-item>
         <ion-item routerLink="/carrito" style="color:rgb(189, 189, 189);"><ion-icon name="cart" style="font-size: 23px; color: #f4c9da;"></ion-icon> Canasta</ion-item>
         <ion-item routerLink="/menu" style="color:rgb(189, 189, 189);"><mat-icon style="font-size: 23px; color: #f4c9da;"> restaurant_menu</mat-icon> Menú</ion-item>
-        <ion-item routerLink="/sesion" style="padding-top: 40px; color:rgb(189, 189, 189);"><ion-icon name="log-out" style="font-size: 23px; color: #f4c9da;"></ion-icon> Cerrar Sesión</ion-item>
+        <ion-item  (click)="salir()" style="padding-top: 40px; color:rgb(189, 189, 189);"><ion-icon name="log-out" style="font-size: 23px; color: #f4c9da;"></ion-icon> Cerrar Sesión</ion-item>
       </ion-menu-toggle>
       </ion-list>
     </ion-content>
