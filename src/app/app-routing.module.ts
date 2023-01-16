@@ -8,7 +8,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'admcomidas',
+    redirectTo: 'menu',
     pathMatch: 'full'
   },
   
