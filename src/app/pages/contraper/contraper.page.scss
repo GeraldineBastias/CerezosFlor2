@@ -1,0 +1,32 @@
+ion-header{
+    --background:#ffffff;
+}
+
+ion-content{
+    --background:#FFF1F5;
+}
+h2{
+    color: rgb(118, 117, 118);
+    text-align: center;
+}
+ion-toolbar{
+    --background:#fffdfe;
+}
+ion-item{
+    --background:#FFF1F5;
+}
+.registro-button {
+    --background: #f5c4e2;
+    width: 100%;
+    font-weight: 10px;
+    size-adjust: 30%;
+}
+.action-button{
+    text-align: center;
+    .inicio-button{
+        --background:#f5c4e2;
+        width: 100%;
+        font-weight: bold;
+        padding-top: 0px;
+    }
+}

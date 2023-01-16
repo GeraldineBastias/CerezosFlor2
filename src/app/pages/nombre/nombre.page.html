@@ -1,0 +1,26 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button style="color: rgb(255, 169, 169);"><ion-icon name="menu">menu</ion-icon></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <h2>Cambiar Nombre</h2>
+  <ion-note slot="helper">Nombre de Usuario</ion-note>
+  <ion-item fill="solid" style="margin-top: 20px;">
+    <ion-label style="color: rgb(118, 117, 118);" position="floating">Nombre:</ion-label>
+    <!--Cambiar el typpo de input-->
+    <ion-input [(ngModel)]="nombremod"></ion-input>
+
+  </ion-item>
+  <ion-note slot="helper">Nombre de Usuario</ion-note>
+  <ion-item fill="solid" style="margin-top: 20px;">
+    <ion-label style="color: rgb(118, 117, 118);" position="floating">Repita su Nombre:</ion-label>
+    <!--Cambiar el typpo de input-->
+    <ion-input [(ngModel)]="nombremod2"></ion-input>
+
+  </ion-item>
+  <ion-button (click)="modificarnombre()" class="registro-button" size="medium">Actualizar</ion-button>
+</ion-content>

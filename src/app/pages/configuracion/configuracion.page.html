@@ -1,0 +1,40 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button style="color: rgb(255, 169, 169);"><ion-icon name="menu">menu</ion-icon></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <h2 style="border-bottom: 2px solid rgb(118, 117, 118); font-size: 17px;text-align: left;">Configuración de perfil
+  </h2>
+  <div class="perfil_contenido">
+    <img  src="{{foto}}" style="width: 100px; text-align: center;">
+    <div style="margin-top: 100px;">
+      <ion-button class="registro-button" (click)="Tomarfoto()">Foto</ion-button>
+    </div>
+    <div>
+      <ion-button class="registro-button" (click)="Galeria()">Galeria</ion-button>
+    </div>
+    <div>
+      <ion-button class="registro-button" (click)="Guardar()">Guardar</ion-button>
+    </div>
+
+
+  </div>
+
+  <h2
+    style="border-bottom: 2px solid rgb(118, 117, 118); font-size: 17px;text-align: left;padding-top: 10px;padding-bottom: 5px;">
+    Nombre</h2>
+  <ion-item [routerLink]="['/nombre']" style="color:rgb(157, 157, 157);"><ion-icon name="person"
+      style="font-size: 23px; color: #f0aca5;"></ion-icon>Cambiar Nombre</ion-item>
+
+  <h2
+    style="border-bottom: 2px solid rgb(118, 117, 118); font-size: 17px;text-align: left;padding-top: 10px;padding-bottom: 5px;">
+    Contraseña</h2>
+  <ion-item [routerLink]="['/contraper']" style="color:rgb(157, 157, 157); "><ion-icon name="lock-closed-outline"
+      style="font-size: 23px; color: #f0aca5;"></ion-icon>Cambiar Contraseña</ion-item>
+
+
+</ion-content>

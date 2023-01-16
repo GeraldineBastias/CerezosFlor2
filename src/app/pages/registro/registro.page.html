@@ -1,0 +1,57 @@
+<ion-header class="ion-no-border">
+</ion-header>
+
+<ion-content>
+  <div style="padding-top: 30px;" id="header">
+    <img src="assets/Cerezo.png"/>
+    <h4 style="text-align: center;">Que esperas para probar la comida japonesa</h4>
+    <h1>Crear Cuenta</h1>
+  
+  <ion-grid>
+    <ion-row style="border: rgb(255, 169, 169) 2px solid; border-radius: 20px;">
+      <ion-col size="2">
+        <ion-icon style="text-align: center; padding-top: 7px; padding-left: 10px; font-size: 25px; color: #bf7c7a;" name="person-outline"></ion-icon></ion-col>
+      <ion-col size="10" style="flex: 0 0 calc(calc(10 / var(--ion-grid-columns, 12)) * 100%);width: calc(calc(10 / var(--ion-grid-columns, 12)) * 100%);max-width: calc(calc(10 / var(--ion-grid-columns, 12)) * 100%);padding-right: 42px;"><ion-input type="text" maxlength=30 minlength=5 [(ngModel)]="nombreA" placeholder="Ingrese su nombre" required style="float: left; border-left: rgb(174, 105, 103) 1px solid;"></ion-input></ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-grid>
+    <ion-row style="border: rgb(255, 169, 169) 2px solid; border-radius: 20px;">
+      <ion-col size="2"><ion-icon style="text-align: center; padding-top: 7px; padding-left: 10px; font-size: 25px; color: #bf7c7a;" name="mail-outline"></ion-icon></ion-col>
+      <ion-col size="10" style="flex: 0 0 calc(calc(10 / var(--ion-grid-columns, 12)) * 100%);width: calc(calc(10 / var(--ion-grid-columns, 12)) * 100%);max-width: calc(calc(10 / var(--ion-grid-columns, 12)) * 100%);padding-right: 42px;"><ion-input type="mail" maxlength=30 minlength=5 [(ngModel)]="correoA" placeholder="Correo Electrónico" required style="float: left; border-left: rgb(174, 105, 103) 1px solid;"></ion-input></ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-grid>
+    <ion-row style="border: rgb(255, 169, 169) 2px solid; border-radius: 20px;">
+      <ion-col size="2">
+        <ion-icon style="text-align: center; padding-top: 7px; padding-left: 10px; font-size: 25px; color: #bf7c7a"
+          name="lock-closed-outline"></ion-icon></ion-col>
+      <ion-col size="7">
+        <ion-input type="password" matInput [type]="hide ? 'password' : 'text'" maxlength=30 minlength=5 [(ngModel)]="passA" placeholder="Contraseña"
+          style="float: left; border-left: rgb(174, 105, 103) 1px solid;"></ion-input></ion-col>
+      <ion-col size="3"><button style="color: #bf7c7a" mat-icon-button matSuffix (click)="hide = !hide"
+          [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide"><mat-icon>{{hide ? 'visibility_off' :
+            'visibility'}}</mat-icon></button></ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-grid>
+    <ion-row style="border: rgb(255, 169, 169) 2px solid; border-radius: 20px;">
+      <ion-col size="2">
+        <ion-icon style="text-align: center; padding-top: 7px; padding-left: 10px; font-size: 25px; color: #bf7c7a"
+          name="lock-closed-outline"></ion-icon></ion-col>
+      <ion-col size="7">
+        <ion-input type="password" matInput [type]="hide ? 'password' : 'text'" maxlength=30 minlength=5  [(ngModel)]="passRepetir" placeholder="Repita su Contraseña"
+          style="float: left; border-left: rgb(174, 105, 103) 1px solid;"></ion-input></ion-col>
+      <ion-col size="3"><button style="color: #bf7c7a" mat-icon-button matSuffix (click)="hide = !hide"
+          [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide"><mat-icon>{{hide ? 'visibility_off' :
+            'visibility'}}</mat-icon></button></ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <div class="action-button ion-padding">
+    <ion-button size="medium" class="registro-button" (click)="ValidarTodo()">Registrarse</ion-button>
+  </div>
+</div>
+</ion-content>
+

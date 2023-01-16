@@ -1,0 +1,42 @@
+ion-header{
+  --background:#FFF1F5;
+}
+
+ion-content{
+  --background:#FFF1F5;
+}
+ion-toolbar{
+  --background:#fffdfe;
+}
+ion-item{
+  --background:#FFF1F5;
+}
+
+h2{
+  color: rgb(118, 117, 118);
+}
+table {
+  width: 80%;
+  border-collapse: collapse; 
+    
+}
+
+th, td {
+    border: solid 1px rgb(171, 171, 171); 
+}
+
+th {
+    background-color: rgba(245,196,226,255);
+    color: white;
+    text-align: center;
+}
+
+tr {
+    background-color: rgb(255, 255, 255);
+}
+
+
+tr:hover {
+    background-color: rgb(175, 175, 175);
+    cursor: pointer;
+}

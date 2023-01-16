@@ -1,0 +1,26 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+   <!--arreglar este boton--> <ion-menu-button  style="color: rgb(255, 169, 169);"><ion-icon name="menu">menu</ion-icon></ion-menu-button>
+    </ion-buttons>
+    </ion-toolbar>   
+</ion-header>
+
+<ion-content>
+  <h2 style="border-bottom: 2px solid rgb(118, 117, 118); font-size: 17px;text-align: left;">Perfil</h2>
+  <div class="perfil_contenido">
+    <img style="border-radius: 50%;" src="assets/fotodefault.jpg" style="border-radius: 50%;padding-left: 60px;padding-right: 60px;padding-top: 10px;padding-bottom: 10px;">
+  </div>
+  <h1 style="text-align: center;font-size: 18px; color: #f283aa;">Miku Hatsune</h1>
+
+  <h2 style="border-bottom: 2px solid rgb(118, 117, 118); font-size: 17px;text-align: left;padding-top: 10px;padding-bottom: 5px;">Configuración</h2>
+  <ion-item routerLink="/configuracion" style="color:rgb(157, 157, 157);"><ion-icon name="person" style="font-size: 23px; color: #f0aca5;"></ion-icon>Acerca de mí</ion-item>
+
+  <h2 style="border-bottom: 2px solid rgb(118, 117, 118); font-size: 17px;text-align: left;padding-top: 10px;padding-bottom: 5px;">Pago</h2>
+  <ion-item routerLink="/tarjeta" style="color:rgb(157, 157, 157);"><ion-icon name="card" style="font-size: 23px; color: #f0aca5;"></ion-icon> Tarjetas</ion-item>
+  
+  <h2 style="border-bottom: 2px solid rgb(118, 117, 118); font-size: 17px;text-align: left;padding-top: 10px;padding-bottom: 5px;">Dirección</h2>
+  <ion-item routerLink="/mapa" style="color:rgb(157, 157, 157); "><ion-icon name="map" style="font-size: 23px; color: #f0aca5;"></ion-icon> Dirección de entrega</ion-item>
+
+
+</ion-content>

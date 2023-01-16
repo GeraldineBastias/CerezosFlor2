@@ -1,0 +1,56 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+    <ion-menu-button  style="color: rgb(255, 169, 169);" ><mat-icon>menu</mat-icon></ion-menu-button>
+    </ion-buttons>
+    </ion-toolbar>
+    
+</ion-header>
+
+<ion-content>
+  <div style="padding-top:0px;"> 
+  <h3 >Cerezos en Flor</h3>
+  </div>
+  <ion-card>
+    <img src="assets/Sakura.Mochi.jpg" />
+    <ion-card-content>
+      Somos un pequeño negocio el cual quiere hacerte degustar la comida japonesa, con el fin de que puedas disfrutarla desde la comodidad de tu hogar con precios accesibles para todos nuestros clientes.
+    </ion-card-content>
+  </ion-card>
+  
+  <h2 style="border-bottom: 2px solid rgb(189, 189, 189); font-size: 17px; ">Especiales del día</h2>
+
+<ion-card [routerLink]="['/ramune']">
+  <ion-card-header>
+    <ion-card-title style="text-align: center;">Ramune Frutilla</ion-card-title>
+    <ion-card-subtitle style="text-align: center;"><p ion-text-center>{{2500 | currency:'$':true:'4.0-0'}} </p></ion-card-subtitle>
+  </ion-card-header>
+  <img width="220px" style="padding-left: 18px; margin-left: 45px;" src="assets/Ramunefrutilla.png" />
+</ion-card>
+
+<ion-card [routerLink]="['/calpis']">
+  <ion-card-header>
+    <ion-card-title style="text-align: center;">Calpis Uva</ion-card-title>
+    <ion-card-subtitle style="text-align: center;"><p ion-text-center>{{2300 | currency:'$':true:'4.0-0'}}</p></ion-card-subtitle>
+  </ion-card-header>
+  <img width="220px" style="padding-left: 18px; margin-left: 45px;" src="assets/calpisuva.png" />
+</ion-card>
+
+<ion-card [routerLink]="['/ramen']">
+  <ion-card-header>
+    <ion-card-title style="text-align: center;">Ramen</ion-card-title>
+    <ion-card-subtitle style="text-align: center;"><p ion-text-center>{{6000 | currency:'$':true:'4.0-0'}}</p></ion-card-subtitle>
+  </ion-card-header>
+  <img width="220px" style="padding-left: 18px; margin-left: 45px;" src="assets/Ramen.jpg" />
+</ion-card>
+
+<ion-card [routerLink]="['/mitarashi']">
+  <ion-card-header>
+    <ion-card-title style="text-align: center;">Mitarashi Dango</ion-card-title>
+    <ion-card-subtitle style="text-align: center;"><p ion-text-center>{{1500 | currency:'$':true:'4.0-0'}}</p></ion-card-subtitle>
+  </ion-card-header>
+  <img width="220px" style="padding-left: 18px; margin-left: 45px;" src="assets/Mitarashidango.jpg" />
+</ion-card>
+
+
+

@@ -1,0 +1,35 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-icon [routerLink]="['/perfildue']" name="arrow-back"
+      style="color: rgb(255, 169, 169); width: 25px; height: 25px; padding-left: 10px;"></ion-icon>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <h2 class="ion-text-center" style="border-bottom: 2px solid rgb(118, 117, 118); font-size: 17px;">Agregar Comida</h2>
+
+  <ion-item>
+    <ion-label position="floating">Nombre Comida</ion-label>
+    <ion-input type="next" [(ngModel)]="tituloComida"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Información de Comida</ion-label>
+    <ion-input type="next" [(ngModel)]="textoComida"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating" style="padding-top: 0px; padding-bottom: 20px;">Foto de la comida</ion-label>
+
+    <ion-button shape="round" style="padding-top: 10px;">Seleccionar foto</ion-button>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Precio de la comida</ion-label>
+    <ion-input type="text" name="precio" value="" placeholder="$4000" maxlength="6" minlength="4"
+      onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" required></ion-input>
+  </ion-item>
+
+  <ion-button  [routerLink]="['/admcomidas']" shape="block" (click)="Guardar()">Agregar Comida</ion-button>
+
+</ion-content>

@@ -1,0 +1,21 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-icon slot="start" [routerLink]="['/menu']" name="arrow-back"style="color: rgb(255, 169, 169); width: 25px; height: 25px; padding-left: 10px;"></ion-icon>
+    <ion-icon slot="end" [routerLink]="['/carrito']" name="cart"style="color: rgb(255, 169, 169);width: 25px;height: 25px;padding-right: 0px;padding-left: 200px;"></ion-icon>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <h1 style="text-align: center; font-weight: bolder; color: rgb(0, 0, 0);">Anmitsu Panda</h1>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title style="text-align: center;"><p ion-text-center>{{2000 | currency:'$':true:'4.0-0'}}</p></ion-card-title>
+     
+    </ion-card-header>
+    <img width="220px" style="text-align: center;" src="assets/Anmitsupanda.jpg" />
+    <ion-card-subtitle style="text-align: center; color: rgb(128, 128, 128); ">El anmitsu es un dulce japones que esperamos estés encantado de probar, ya que está hecho de pequeños cubos de gelatina, pasta dulce de judías rojas, pastel de arroz, y una variedad de frutas y helado que te encantaran .</ion-card-subtitle>
+    <ion-button class="registro-button" size="medium">Añadir</ion-button>
+
+  </ion-card>
+
+</ion-content>

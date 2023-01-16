@@ -1,0 +1,65 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-icon [routerLink]="['/menu']" name="arrow-back" style="color: rgb(255, 169, 169); width: 25px; height: 25px; padding-left: 10px;"></ion-icon>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <h2 style="border-bottom: 2px solid rgb(118, 117, 118); font-size: 17px;text-align: left;">Carrito</h2>
+ 
+  <ion-list>
+    <ion-item >
+      <ion-thumbnail slot="start">
+        <ion-img src="assets/Ramen.jpg"></ion-img>
+      </ion-thumbnail>
+      <ion-label>
+        <h3>Ramen</h3>
+        <h4>1 ración</h4>
+        <ion-card-subtitle><p ion-text-center>{{6000 | currency:'$':true:'4.0-0'}}</p></ion-card-subtitle>
+      </ion-label>
+      <ion-button fill="outline" slot="end" color="danger">
+        <ion-icon name="trash-outline"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-list>
+
+  <ion-list>
+    <ion-item >
+      <ion-thumbnail slot="start">
+        <ion-img src="assets/Ramunefrutilla.png"></ion-img>
+      </ion-thumbnail>
+      <ion-label>
+        <h3>Ramune frutilla</h3>
+        <h4>1 ración</h4>
+        <ion-card-subtitle><p ion-text-center>{{2500 | currency:'$':true:'4.0-0'}}</p></ion-card-subtitle>
+      </ion-label>
+      <ion-button fill="outline" slot="end" color="danger" >
+        <ion-icon name="trash-outline"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-list>
+
+  <ion-list>
+    <ion-item >
+      <ion-thumbnail slot="start">
+        <ion-img src="assets/Mitarashidango.jpg"></ion-img>
+      </ion-thumbnail>
+      <ion-label>
+        <h3>Mitarashi <br>Dango</h3>
+        <h4>1 ración</h4>
+        <ion-card-subtitle><p>{{1500 | currency:'$':true:'4.0-0'}}</p></ion-card-subtitle>
+      </ion-label>
+      <ion-button fill="outline" slot="end" color="danger" >
+        <ion-icon name="trash-outline"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-list>
+
+  <p><strong>Subtotal a pagar:</strong>$9500</p>
+  <ion-button expand="full" shape="round" color="light" >
+    Pagar
+  </ion-button>
+
+
+
+</ion-content>

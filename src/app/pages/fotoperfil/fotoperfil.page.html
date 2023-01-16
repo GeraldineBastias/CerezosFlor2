@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-buttons slot="start">
+      <ion-back-button ></ion-back-button>
+    </ion-buttons>
+    <ion-title></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" style="text-align: center;">
+    <img  src="{{foto}}" alt="La imagen aun no a sido tomada" style="width: 100px;text-align: center;">
+    <div style="margin-top: 100px;">
+      
+      <ion-button (click)="Tomarfoto()">Foto</ion-button>
+    </div>
+    <div>
+      <ion-button (click)="Galeria()">Galeria</ion-button>
+    </div>
+    <div>
+      <ion-button (click)="Guardar()">Guardar</ion-button>
+    </div>
+</ion-content>

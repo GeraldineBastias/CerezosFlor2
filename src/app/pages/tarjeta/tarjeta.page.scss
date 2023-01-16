@@ -1,0 +1,40 @@
+ion-header{
+  --background:#FFF1F5;
+}
+
+ion-content{
+  --background:#FFF1F5;
+}
+ion-toolbar{
+  --background:#fffdfe;
+}
+ion-item{
+  --background:#FFF1F5;
+}
+
+h2{
+  color: rgb(118, 117, 118);
+}
+
+
+  ion-button {
+    --background: #f5c4e2;
+    --background-hover: ##f5c4e2;
+    --background-activated: #f3c2f6;
+    --background-focused: #f3c2f6;
+  
+    --color: rgb(255, 255, 255);
+  
+    --border-radius: 0;
+    --border-color: #f3c2f6;
+    --border-style: solid;
+    --border-width: 1px;
+  
+    --box-shadow: 0 2px 6px 0 rgb(0, 0, 0, 0.25);
+  
+    --ripple-color: deeppink;
+  
+    --padding-top: 10px;
+    --padding-bottom: 10px;
+  }
+  

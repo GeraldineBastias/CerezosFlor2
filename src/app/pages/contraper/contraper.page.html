@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button style="color: rgb(255, 169, 169);"><ion-icon name="menu">menu</ion-icon></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <h2>Cambiar Contraseña</h2>
+  <ion-note slot="helper">Contraseña</ion-note>
+  <ion-item fill="solid" style="margin-top: 20px;">
+    <ion-label style="color: rgb(118, 117, 118);" position="floating">Contraseña Nueva:</ion-label>
+    <ion-input [(ngModel)]="clavemod" type="password"></ion-input>
+  </ion-item>
+
+  <ion-note slot="helper">Contraseña</ion-note>
+  <ion-item fill="solid" style="margin-top: 20px;">
+    <ion-label style="color: rgb(118, 117, 118);" position="floating">Repita su Contraseña:</ion-label>
+    <ion-input [(ngModel)]="clavemod2" type="password"></ion-input>
+  </ion-item>
+  <ion-button (click)="modificarclave()" class="registro-button" size="medium">Actualizar</ion-button>
+</ion-content>

@@ -1,0 +1,32 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div style="padding-top: 10px;" id="header">
+    <img src="assets/Cerezo.png" />
+    <h1 style="text-align: center;" >¿Tienes problemas para Iniciar Sesión?</h1>
+    <p style="text-align: center;">Introduce tu correo electrónico y te mandaremos un enlace para que vuelvas a entrar a tu cuenta</p>
+
+  </div>
+
+  <ion-grid>
+    <ion-row style="border: rgb(255, 169, 169) 2px solid; border-radius: 20px;">
+      <ion-col size="2"><ion-icon
+          style="text-align: center; padding-top: 7px; padding-left: 10px; font-size: 25px; color: #bf7c7a;"
+          name="mail-outline"></ion-icon></ion-col>
+      <ion-col size="10"><ion-input [(ngModel)]="correo" type="email" placeholder="Correo Electrónico" maxlength="30" minlength="15" required
+          style="float: left; border-left: rgb(174, 105, 103) 1px solid;"></ion-input></ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <div>
+    <ion-button class="registro-button" size="medium" (click)="Validar()" >Enviar</ion-button>
+  </div>
+  <br>
+  <div>
+    <ion-button  class="registro-button" size="medium" [routerLink]="['/sesion']">Volver al Inicio de Sesión</ion-button>
+  </div>
+
+</ion-content>

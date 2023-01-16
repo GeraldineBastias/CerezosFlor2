@@ -1,0 +1,64 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-icon [routerLink]="['/perfilclie']" name="arrow-back" style="color: rgb(255, 169, 169); width: 25px; height: 25px; padding-left: 10px;"></ion-icon>
+  </ion-toolbar>
+  
+</ion-header>
+
+<ion-content>
+  <h2 style="border-bottom: 2px solid rgb(118, 117, 118); font-size: 17px;text-align: left;">Registrar Tarjetas</h2>
+
+
+  <ion-list>
+
+    <ion-item>
+      <ion-label position="floating" class="ion-padding-bottom">Tipo de tarjeta </ion-label>
+      <ion-select interface="action-sheet" placeholder="Seleccione su tarjeta">
+        <ion-select-option value="red">Débito</ion-select-option>
+        <ion-select-option value="oranges">Crédito</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating" >Nombre del titular </ion-label>
+      <ion-input type="text" maxlength=60 minlength=5 placeholder="Ejemplo:Hatsune Miku" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating" >Número de la tarjeta </ion-label>
+      <ion-input type="text" name="tarjeta" value="" placeholder="Ejemplo: 4444333322221111"  maxlength="16" minlength="16" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" required ></ion-input>  
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating" class="ion-padding-bottom">Mes de expiración</ion-label>
+      <ion-select interface="action-sheet" placeholder="Seleccione su tarjeta">
+        <ion-select-option value="enero">1</ion-select-option>
+        <ion-select-option value="febrero">2</ion-select-option>
+        <ion-select-option value="marzo">3</ion-select-option>
+        <ion-select-option value="abril">4</ion-select-option>
+        <ion-select-option value="mayo">5</ion-select-option>
+        <ion-select-option value="junio">6</ion-select-option>
+        <ion-select-option value="julio">7</ion-select-option>
+        <ion-select-option value="agosto">8</ion-select-option>
+        <ion-select-option value="septiembre">9</ion-select-option>
+        <ion-select-option value="octubre">10</ion-select-option>
+        <ion-select-option value="noviembre">11</ion-select-option>
+        <ion-select-option value="diciembre">12</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item >
+      <ion-label position="floating">Año de expiración</ion-label>
+      <ion-input type="text" name="anno" value="" placeholder="Ejemplo: 1998"  maxlength="4" minlength="4" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" required ></ion-input>  
+    </ion-item>
+
+
+
+    <ion-item >
+      <ion-label position="floating">CVV </ion-label>
+      <ion-input type="text" name="anno" value="" placeholder="1234"  maxlength="3" minlength="3" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" required ></ion-input>  
+    </ion-item>
+
+    <ion-button expand="block" shape="round" [routerLink]="['/perfilclie']">Insertar tarjeta</ion-button>
+  </ion-list>
+</ion-content>

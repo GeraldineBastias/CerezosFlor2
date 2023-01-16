@@ -1,0 +1,23 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-icon [routerLink]="['/perfildue']" name="arrow-back"
+      style="color: rgb(255, 169, 169); width: 25px; height: 25px; padding-left: 10px;"></ion-icon>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <h2 style="border-bottom: 2px solid rgb(118, 117, 118); font-size: 17px;text-align: left;">Administrar Comidas</h2>
+
+  
+  <ion-item>
+    <ion-label position="floating">Nombre Comida</ion-label>
+    <ion-input type="text" [(ngModel)]="tituloComida"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Información de Comida</ion-label>
+    <ion-input type="text" [(ngModel)]="textoComida"></ion-input>
+  </ion-item>
+
+  <ion-button shpe="block" (click)="Modificar()">Guardar Comida</ion-button>
+</ion-content>

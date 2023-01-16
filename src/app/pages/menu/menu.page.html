@@ -1,0 +1,58 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+       <ion-menu-button  style="color: rgb(255, 169, 169);"><ion-icon name="menu">menu</ion-icon></ion-menu-button>
+    </ion-buttons>
+    </ion-toolbar>   
+</ion-header>
+
+<ion-content>
+  <h1 style="text-align: center; font-weight: bolder; color: rgb(95, 95, 95);">Menú</h1>
+  <ion-card [routerLink]="['/ramen']">
+    <ion-card-header>
+      <ion-card-title style="text-align: center;">Ramen</ion-card-title>
+      <ion-card-subtitle style="text-align: center;"><p ion-text-center>{{6000 | currency:'$':true:'4.0-0'}}</p></ion-card-subtitle>
+    </ion-card-header>
+    <img width="220px" style="padding-left: 18px;"  src="assets/Ramen.jpg" ion-text-center/>
+  </ion-card>
+  
+  <ion-card [routerLink]="['/okonomiyaki']">
+    <ion-card-header>
+      <ion-card-title style="text-align: center;">okonomiyaki</ion-card-title>
+      <ion-card-subtitle style="text-align: center;"><p ion-text-center>{{4500 | currency:'$':true:'4.0-0'}}</p></ion-card-subtitle>
+    </ion-card-header>
+    <img width="220px" style="padding-left: 18px;" src="assets/okonomiyaki.jpg" ion-text-center/>
+  </ion-card>
+
+  <ion-card [routerLink]="['/ramune']">
+    <ion-card-header>
+      <ion-card-title style="text-align: center;">Ramune Frutilla</ion-card-title>
+      <ion-card-subtitle style="text-align: center;"><p ion-text-center>{{2500 | currency:'$':true:'4.0-0'}}</p></ion-card-subtitle>
+    </ion-card-header>
+    <img width="220px" style="padding-left: 18px;" src="assets/Ramunefrutilla.png" ion-text-center/>
+  </ion-card>
+
+  <ion-card [routerLink]="['/calpis']">
+    <ion-card-header>
+      <ion-card-title style="text-align: center;">Calpis Uva</ion-card-title>
+      <ion-card-subtitle style="text-align: center;"><p ion-text-center>{{2300 | currency:'$':true:'4.0-0'}}</p></ion-card-subtitle>
+    </ion-card-header>
+    <img width="220px" style="padding-left: 18px;" src="assets/calpisuva.png" ion-text-center/>
+  </ion-card>
+
+  <ion-card [routerLink]="['/mitarashi']">
+    <ion-card-header>
+      <ion-card-title style="text-align: center;">Mitarashi Dango</ion-card-title>
+      <ion-card-subtitle style="text-align: center;"><p ion-text-center>{{1500 | currency:'$':true:'4.0-0'}}</p></ion-card-subtitle>
+    </ion-card-header>
+    <img width="220px" style="padding-left: 18px;" src="assets/Mitarashidango.jpg" ion-text-center/>
+  </ion-card>
+
+  <ion-card [routerLink]="['/anmitsu']">
+    <ion-card-header>
+      <ion-card-title style="text-align: center;">Anmitsu Panda</ion-card-title>
+      <ion-card-subtitle style="text-align: center;"><p ion-text-center>{{2000 | currency:'$':true:'4.0-0'}}</p></ion-card-subtitle>
+    </ion-card-header>
+    <img width="220px" style="padding-left: 18px;" src="assets/Anmitsupanda.jpg" ion-text-center/>
+  </ion-card>
+</ion-content>

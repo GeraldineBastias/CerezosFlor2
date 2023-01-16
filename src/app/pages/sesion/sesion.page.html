@@ -1,0 +1,35 @@
+<ion-header class="ion-no-border">
+</ion-header>
+
+<ion-content>
+  <div style="padding-top: 30px;" id="header">
+    <img src="assets/Cerezo.png" />
+    <h4>Nos alegra tenerte devuelta</h4>
+    <h1>Iniciar Sesión</h1>
+  </div>
+  
+  <ion-grid>
+    <ion-row style="border: rgb(255, 169, 169) 2px solid; border-radius: 20px;">
+      <ion-col size="2"><ion-icon style="text-align: center; padding-top: 7px; padding-left: 10px; font-size: 25px; color: #bf7c7a;" name="mail-outline"></ion-icon></ion-col>
+      <ion-col size="10"><ion-input [(ngModel)]="ingreso.nombre" type="text" id="user" placeholder="Nombre de Usuario" maxlength="30" minlength="15" required style="float: left; border-left: rgb(174, 105, 103) 1px solid;"></ion-input></ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-grid>
+    <ion-row style="border: rgb(255, 169, 169) 2px solid; border-radius: 20px;">
+      <ion-col size="2"><ion-icon style="text-align: center; padding-top: 7px; padding-left: 10px; font-size: 25px; color: #bf7c7a;" name="lock-closed-outline" ></ion-icon></ion-col>
+      <ion-col size="7"><ion-input  [(ngModel)]="ingreso.clave"  id="clave" matInput [type]="hide ? 'password' : 'text'" placeholder="Contraseña" maxlength="20" minlength="4" required style="float: left; border-left: rgb(174, 105, 103) 1px solid;"></ion-input></ion-col>
+      <ion-col size="3"><button style="color: #bf7c7a" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide"><mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon></button></ion-col>
+    </ion-row>
+  </ion-grid>  
+
+  <div class="action-button ion-padding">
+    <ion-button size="medium" class="inicio-button" (click)="iniciarSesion()">Iniciar Sesión</ion-button> 
+    <ion-button class="registro-button" size="medium" [routerLink]="['/registro']">Registrarse</ion-button>
+
+    <a href="/cambiocontra" role="link" tabindex="0" color="primary" style=" text-decoration: none;">¿Has olvidado tu contraseña?</a>
+  </div>
+
+
+  
+</ion-content>

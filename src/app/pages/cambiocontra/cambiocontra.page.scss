@@ -1,0 +1,38 @@
+ion-header{
+    --background:#ffffff;
+}
+
+ion-content{
+    --background:#FFF1F5;
+}
+
+#header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h1 {
+        font-weight: 100;
+        font-size: 26px;
+        color: rgb(0, 0, 0);
+        margin-bottom: 15px;
+    }
+
+    p {
+        font-weight: 100;
+        font-size: 15px;
+        color: rgb(103, 103, 103);
+        align-items: center;
+    }
+
+    img {
+        width: 120px;
+        height: 100px;
+
+    }
+}
+.registro-button {
+    --background: #f5c4e2;
+    width: 100%;
+    font-weight: bold;
+}
