@@ -20,18 +20,6 @@
       </ion-item-options>
     </ion-item-sliding>
     
-    <ion-item-sliding *ngFor="let x of comida2">
-      <ion-item>
-        <h2>{{ x.titulo }}</h2>
-        <p>{{ x.texto }}</p>  
-      </ion-item>
-      <ion-item-options>
-        <ion-item-option (click)="modificarDatos(x)">Modificar</ion-item-option>
-        <ion-item-option color="danger" (click)="eliminarComida(x)">Eliminar</ion-item-option>
-      </ion-item-options>
-    </ion-item-sliding>
-    
-    
   </ion-list>
 
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">

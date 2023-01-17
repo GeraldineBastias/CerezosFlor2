@@ -47,6 +47,10 @@ export class BdService {
   usuario1: string = "INSERT or IGNORE INTO usuario(idusuario,nombre,clave,foto,correo,direccion,fk_id_rol) VALUES ( 1, 'Ulises', '12345', '', 'ulise@gmail.com', 'calle norte', 1 );";
 
   usuario2: string = "INSERT or IGNORE INTO usuario(idusuario,nombre,clave,foto,correo,direccion,fk_id_rol) VALUES ( 2, 'Oliver', '12345', '', 'oliver@gmail.com', 'calle sur', 2 );";
+
+
+
+  
   //variable para guardar los registros de cada tabla de BD
   s: Comida[] = [];
   listaComida: BehaviorSubject<Comida[]> = new BehaviorSubject(this.s);
@@ -233,7 +237,8 @@ export class BdService {
     });
   }
 
-  //agregar este en el ts de agregarcomida
+  //arreglar
+
   insertarComida(titulo: string, texto: string) {
     let data = [titulo, texto];
     return this.database.executeSql('INSERT INTO comida(titulo,texto) VALUES (?,?)', data).then(res => {
@@ -249,7 +254,7 @@ export class BdService {
       this.presentAlert("Comida Modificada");
     })
   }
-  //eliminar comidas
+  //eliminar comidas //revisarj
   eliminarComida(id: number) {
     return this.database.executeSql('DELETE FROM comida WHERE id = ?', [id]).then(e => {
       this.buscarComidas();
@@ -257,7 +262,7 @@ export class BdService {
     })
   }
 
-
+  // tratar de arreglar registro
   login(nombre: string, clave: string) {
     let data = [nombre, clave]
     return this.database.executeSql('SELECT * FROM usuario WHERE nombre=? AND clave=? ', data).then(res => {

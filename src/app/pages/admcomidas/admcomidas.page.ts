@@ -15,15 +15,7 @@ export class AdmcomidasPage implements OnInit {
       id: 1,
       titulo: 'Calpis Uva',
       texto: 'Bebida de origen japonés no carbonatada, La bebida tiene un cierto toque, parecido al de la leche, y ligero sabor ácido, similar al yogur natural con sabor a Uva.',
-    },  
-  ]
-  comida2: any = [
-    {
-      id: 2,
-      titulo: 'Ramen',
-      texto: 'El ramen es una sopa cuyos ingredientes principales son los fideos chinos, acompañados de caldo de pollo.que viene acompañado con cerdo asado, cebolla de verdeo, brotes de bambú y huevo.',
-    },  
-
+    }, 
   ]
 
   constructor(private router: Router, private servicioBD: BdService) { }
@@ -31,7 +23,7 @@ export class AdmcomidasPage implements OnInit {
   ngOnInit() {
     //subscribirnos al observable el segundo nos ayudara a que se pueda actualizar
     this.servicioBD.dbState().subscribe(res => {
-      if (res){
+      if (res) {
         this.servicioBD.fetchComidas().subscribe(item => {
           this.listaComida = item;
         })
@@ -39,7 +31,7 @@ export class AdmcomidasPage implements OnInit {
     })
   }
 
-  modificarDatos(x: any){
+  modificarDatos(x: any) {
     let navigationExtras: NavigationExtras = {
       state: {
         idEnviado: x.id,
@@ -50,7 +42,7 @@ export class AdmcomidasPage implements OnInit {
     this.router.navigate(['/modificarcomida'], navigationExtras);
   }
 
-  eliminarComida(x: any){
+  eliminarComida(x: any) {
     this.servicioBD.eliminarComida(x.id);
   }
 
