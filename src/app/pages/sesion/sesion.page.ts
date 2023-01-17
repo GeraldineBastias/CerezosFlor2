@@ -58,11 +58,11 @@ export class SesionPage implements OnInit {
     }
     else {
       if (this.Usuario[0].fk_id_rol == 2) { // DUEÑO
-        this.presentToast("Bienvenido" + this.ingreso.nombre);
+        this.presentToast("Bienvenido " + this.ingreso.nombre);
         this.router.navigate(['/perfildue']);
       } else {
         if (this.Usuario[0].fk_id_rol == 1) { //CLIENTE
-          this.presentToast("Bienvenido" + this.ingreso.nombre);
+          this.presentToast("Bienvenido " + this.ingreso.nombre);
           this.router.navigate(['/menu']);
         }
       }

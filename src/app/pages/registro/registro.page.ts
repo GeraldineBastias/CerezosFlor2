@@ -16,19 +16,32 @@ export class RegistroPage implements OnInit {
   correoA='';
   passA='';
   passRepetir='';
+  direccionA='';
+  fotoA=' ';
+  rol= 1 ;
 
   constructor(private bd: BdService, private activedRouter: ActivatedRoute,private router: Router, private toastController: ToastController, private alertController: AlertController) { }
 
   ngOnInit() {
+    this.bd.dbState().subscribe((res) => {
+      if (res) {
+        this.bd.fetchUser().subscribe(item => {
+          this.Usuario = item;
+
+        })
+      }
+    })
   }
 
   ValidarTodo(){
     if (this.nombreA.length == 0) {
       this.presentToast("Ingrese su nombre de Usuario");
-    }else if (this.nombreA.length < 4 && this.nombreA.length > 20) {
-      this.presentToast("Su nombre debe tener entre 4 y 20 caracteres");
+    }else if (this.nombreA.length > 50) {
+      this.presentToast("El nombre puede contener un máximo de 50 caracteres");
     }else if (this.correoA.length == 0) {
       this.presentToast("Ingrese Su Correo");
+    }else if (this.direccionA.length == 0) {
+      this.presentToast("Ingrese Su Direccion");
     }else if (this.passA.length == 0) {
       this.presentToast("Ingrese Su Contraseña");
     }else if (this.passA != this.passRepetir) {
@@ -37,8 +50,7 @@ export class RegistroPage implements OnInit {
       this.presentToast("Su Contraseña debe tener entre 4 y 20 caracteres");
     }
     else {
-      //FALTA COMPLETAR//  this.bd.agregarUsuario(this.nombreA, this.correoA, this.passA , 2)
-      this.presentToast("Cuenta Creada Exitosamente");
+      this.bd.agregarUsuario( this.nombreA, this.direccionA, this.correoA, this.passA, this.fotoA , this.rol)
       this.router.navigate(['/sesion'])
      }
   }

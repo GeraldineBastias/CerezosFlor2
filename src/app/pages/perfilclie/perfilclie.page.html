@@ -8,10 +8,12 @@
 
 <ion-content>
   <h2 style="border-bottom: 2px solid rgb(118, 117, 118); font-size: 17px;text-align: left;">Perfil</h2>
-  <div class="perfil_contenido">
-    <img style="border-radius: 50%;" src="assets/fotodefault.jpg" style="border-radius: 50%;padding-left: 60px;padding-right: 60px;padding-top: 10px;padding-bottom: 10px;">
+  <div class="perfil_contenido" style="padding-left: 120px;">
+    <ion-avatar slot="start">
+      <img [src]="Usuario[0].foto" alt="La foto aun no se toma">
+    </ion-avatar>  
   </div>
-  <h1 style="text-align: center;font-size: 18px; color: #f283aa;">Miku Hatsune</h1>
+  <h1 style="text-align: center;font-size: 18px; color: #f283aa;">{{ Usuario[0].nombre }}</h1>
 
   <h2 style="border-bottom: 2px solid rgb(118, 117, 118); font-size: 17px;text-align: left;padding-top: 10px;padding-bottom: 5px;">Configuración</h2>
   <ion-item routerLink="/configuracion" style="color:rgb(157, 157, 157);"><ion-icon name="person" style="font-size: 23px; color: #f0aca5;"></ion-icon>Acerca de mí</ion-item>

@@ -46,6 +46,7 @@ export class BdService {
 
   usuario1: string = "INSERT or IGNORE INTO usuario(idusuario,nombre,clave,foto,correo,direccion,fk_id_rol) VALUES ( 1, 'Ulises', '12345', '', 'ulise@gmail.com', 'calle norte', 1 );";
 
+  usuario2: string = "INSERT or IGNORE INTO usuario(idusuario,nombre,clave,foto,correo,direccion,fk_id_rol) VALUES ( 2, 'Oliver', '12345', '', 'oliver@gmail.com', 'calle sur', 2 );";
   //variable para guardar los registros de cada tabla de BD
   s: Comida[] = [];
   listaComida: BehaviorSubject<Comida[]> = new BehaviorSubject(this.s);
@@ -95,7 +96,7 @@ export class BdService {
 
       //creamos la BD
       this.sqlite.create({
-        name: 'delipo.db',
+        name: 'delipos.db',
         location: 'default'
       })
         .then((db: SQLiteObject) => {
@@ -133,9 +134,11 @@ export class BdService {
       //ejecutar insert por defecto
       await this.database.executeSql(this.insertComida, []);
       this.presentAlert("error insert 1")
-      
+
       await this.database.executeSql(this.usuario1, []);
       this.presentAlert("error insert 4")
+      await this.database.executeSql(this.usuario2, []);
+      this.presentAlert("error insert 5")
       //llamar al metodo para select de mi tabla principal
       this.buscarComidas();
       this.presentAlert("error comida")
@@ -192,10 +195,11 @@ export class BdService {
   }
 
 
-  agregarUsuario(idusuario: number, nombre: string, correo: string,foto: string,direccion: string, clave: string, fk_id_rol: number = 1) {
-    let data = [idusuario, nombre, clave, foto, correo, direccion , fk_id_rol,];
-    return this.database.executeSql('INSERT or IGNORE INTO  usuario (idusuario, nombre, clave, foto, correo, direccion, fk_id_rol,) VALUES (?, ?, ?, ?, ?)', data).then(res => {
+  agregarUsuario(nombre: string, correo: string,foto: string,direccion: string, clave: string, fk_id_rol: number = 1) {
+    let data = [nombre, clave, foto, correo, direccion , fk_id_rol,];
+    return this.database.executeSql('INSERT or IGNORE INTO  usuario ( nombre, clave, foto, correo, direccion, fk_id_rol,) VALUES (?, ?, ?, ?, ?, ?)', data).then(res => {
       this.buscarUsuario();
+      this.presentAlert("Cuenta Creada Exitosamente");
     });
   }
 
