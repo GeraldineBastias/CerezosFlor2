@@ -10,7 +10,7 @@ import { BdService } from 'src/app/services/bd.service';
 })
 export class AdmcomidasPage implements OnInit {
 
-  Comida: any[] = []
+  Comida: any[] = [];
 
   constructor(private router: Router, private bd: BdService) { }
 

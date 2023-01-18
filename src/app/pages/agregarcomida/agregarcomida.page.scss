@@ -26,7 +26,12 @@ ion-padding-bottom{
   background-color: #0fc655;
   --background: #7708d1;  
 }
-
+.registro-button {
+  --background: #f5c4e2;
+  width: 100%;
+  font-weight: 10px;
+  size-adjust: 30%;
+}
 
 ion-button {
     --background: #f5c4e2;

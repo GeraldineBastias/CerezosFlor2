@@ -17,6 +17,7 @@ export class ConfiguracionPage implements OnInit {
   usua: any [] = []
 
   Usuario: any[] = []
+  
   constructor(private router: Router, private camara: Camera, private camera: CameraService, private bd: BdService) { }
 
   ngOnInit() {

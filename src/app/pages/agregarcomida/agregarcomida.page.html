@@ -20,13 +20,15 @@
 
   <ion-item>
     <ion-label position="floating" style="padding-top: 0px; padding-bottom: 20px;">Foto de la comida</ion-label>
-
-    <ion-button shape="round" style="padding-top: 10px;">Seleccionar foto</ion-button>
+    <img src="{{foto}}" alt="Ingrese una foto";>  
+    <div>
+      <ion-button (click)="Galeria()">Galeria</ion-button>
+    </div>
   </ion-item>
 
   <ion-item>
     <ion-label position="floating">Precio de la comida</ion-label>
-    <ion-input type="text" name="precio" value="" placeholder="$4000" maxlength="6" minlength="4"
+    <ion-input type="number" name="precio" value="" placeholder="$4000" maxlength="6" minlength="4"
       onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" required></ion-input>
   </ion-item>
 
