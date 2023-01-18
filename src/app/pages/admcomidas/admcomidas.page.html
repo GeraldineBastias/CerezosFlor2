@@ -8,19 +8,18 @@
 <ion-content>
   <h2 style="border-bottom: 2px solid rgb(118, 117, 118); font-size: 17px;text-align: left;">Lista Comidas</h2>
 
-  <ion-list>
-    <ion-item-sliding *ngFor="let x of listaComida">
-      <ion-item>
-        <h2>{{ x.titulo }}</h2>
-        <p>{{ x.texto }}</p>
-      </ion-item>
-      <ion-item-options>
-        <ion-item-option (click)="modificarDatos(x)">Modificar</ion-item-option>
-        <ion-item-option color="danger" (click)="eliminarComida(x)">Eliminar</ion-item-option>
-      </ion-item-options>
-    </ion-item-sliding>
-    
-  </ion-list>
+<ion-list *ngFor="let x of Comida">
+  <ion-item-sliding>
+    <ion-item>
+      <h2>{{ x.titulo }}</h2>
+      <p>{{ x.texto }}</p>
+    </ion-item>
+    <ion-item-options>
+      <ion-item-option (click)="modificarDatos()">Modificar</ion-item-option>
+      <ion-item-option color="danger" (click)="eliminarComida(x)">Eliminar</ion-item-option>
+    </ion-item-options>
+  </ion-item-sliding>
+</ion-list>
 
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button [routerLink]="['/agregarcomida']">
@@ -28,51 +27,7 @@
     </ion-fab-button>
   </ion-fab>
 
-  <!--Home en el ejemplo del profe-->
-
-    <tr>
-      <td><img src="assets/calpisuva.png" width="100" height="100">
-      </td>
-      <td style="text-align: center">Calpis Uva</td>
-      <td><ion-button size="small" color="success"><ion-icon name="create-outline"></ion-icon></ion-button> <ion-button
-          size="small" color="tertiary"><ion-icon name="trash-outline"></ion-icon></ion-button></td>
-    </tr>
-    <tr>
-      <td><img src="assets/Anmitsupanda.jpg" width="100" height="100">
-      <td style="text-align: center">Anmitsu Panda</td>
-      <td><ion-button size="small" color="success"><ion-icon name="create-outline"></ion-icon></ion-button> <ion-button
-          size="small" color="tertiary"><ion-icon name="trash-outline"></ion-icon></ion-button></td>
-
-    </tr>
-    <tr>
-      <td><img src="assets/Mitarashidango.jpg" width="100" height="100">
-      </td>
-      <td style="text-align: center">Mitarashi Dango</td>
-      <td><ion-button size="small" color="success"><ion-icon name="create-outline"></ion-icon></ion-button> <ion-button
-          size="small" color="tertiary"><ion-icon name="trash-outline"></ion-icon></ion-button></td>
-
-    </tr>
-    <tr>
-      <td><img src="assets/okonomiyaki.jpg" width="100" height="100">
-      </td>
-      <td style="text-align: center">Okonomiyaki</td>
-      <td><ion-button size="small" color="success"><ion-icon name="create-outline"></ion-icon></ion-button> <ion-button
-          size="small" color="tertiary"><ion-icon name="trash-outline"></ion-icon></ion-button></td>
-
-    </tr>
-    <tr>
-      <td><img src="assets/Ramen.jpg" width="100" height="100">
-      </td>
-      <td style="text-align: center">Ramen</td>
-      <td><ion-button size="small" color="success"><ion-icon name="create-outline"></ion-icon></ion-button> <ion-button
-          size="small" color="tertiary"><ion-icon name="trash-outline"></ion-icon></ion-button></td>
-    </tr>
-    <tr>
-      <td><img src="assets/Ramunefrutilla.png" width="100" height="100">
-      </td>
-      <td style="text-align: center">Ramune Frutilla</td>
-      <td><ion-button size="small" color="success"><ion-icon name="create-outline"></ion-icon></ion-button> <ion-button
-          size="small" color="tertiary"><ion-icon name="trash-outline"></ion-icon></ion-button></td>
-    </tr>
+ 
 
 </ion-content>
+

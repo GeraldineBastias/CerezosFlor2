@@ -9,25 +9,26 @@ import { BdService } from 'src/app/services/bd.service';
 })
 export class ModificarcomidaPage implements OnInit {
 
+  Comida: any[] = []
+
   tituloComida ="";
   textoComida ="";
-  id=0;
 
-  constructor(private router: Router, private activeRouter: ActivatedRoute, private servicioBD: BdService) { 
-    this.activeRouter.queryParams.subscribe(params=>{
-      if(this.router.getCurrentNavigation()?.extras.state){
-        this.id = this.router.getCurrentNavigation()?.extras?.state?.['idEnviado'];
-        this.textoComida = this.router.getCurrentNavigation()?.extras?.state?.['textoEnviado'];
-        this.tituloComida = this.router.getCurrentNavigation()?.extras?.state?.['titulo'];
+  constructor(private router: Router, private activeRouter: ActivatedRoute, private bd: BdService) { 
+  }
+
+  ngOnInit() {
+    this.bd.dbState().subscribe((res) => {
+      if (res) {
+        this.bd.fetchComidas().subscribe(item => {
+          this.Comida = item;
+        })
       }
     })
   }
 
-  ngOnInit() {
-  }
-
   Modificar(){
-    this.servicioBD.modificarComida(this.id,this.tituloComida,this.textoComida);
+    this.bd.modificarComida(this.Comida[0].id,this.tituloComida,this.textoComida);
     this.router.navigate(['/admcomidas']);
   }
 

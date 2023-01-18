@@ -23,7 +23,7 @@ export class BdService {
   tablaUsuario: string = "CREATE TABLE IF NOT EXISTS usuario(idusuario INTEGER PRIMARY KEY autoincrement, nombre VARCHAR (50), clave VARCHAR (30), foto VARCHAR (150) , correo VARCHAR (50), direccion VARCHAR (75),fk_id_rol INTEGER, FOREIGN KEY(fk_id_rol) REFERENCES rol(idrol));";
 
 
-  tablaComida: string = "CREATE TABLE IF NOT EXISTS comida(id INTEGER PRIMARY KEY autoincrement, titulo VARCHAR(50), texto VARCHAR (100), fk_id_tipocomida INTEGER, FOREIGN KEY(fk_id_tipocomida) REFERENCES comida(idtipocomida));";
+  tablaComida: string = "CREATE TABLE IF NOT EXISTS comida(id INTEGER PRIMARY KEY autoincrement, foto VARCHAR (150), titulo VARCHAR(50), texto VARCHAR (100));";
 
   //tablaTipoComida: string = "CREATE TABLE IF NOT EXISTS tipocomida(idtipocomida INTEGER PRIMARY KEY autoincrement, nombrecomida VARCHAR (50), descripcioncomida VARCHAR (100));";
 
@@ -38,7 +38,13 @@ export class BdService {
   //TablaComuna: string = "CREATE TABLE IF NOT EXISTS comuna (idcomuna INTEGER PRIMARY KEY autoincrement, nombre VARCHAR (70));";
 
   //variables para datos de inicio en mis tablas
-  insertComida: string = "INSERT OR IGNORE INTO comida(id,titulo,texto) VALUES (2,'Ramen','El ramen es una sopa cuyos ingredientes son fideos chinos, acompañados de caldo de pollo.que viene acompañado con cerdo asado, cebolla de verdeo, brotes de bambú y huevo.');";
+  insertComida: string = "INSERT OR IGNORE INTO comida(id,foto,titulo,texto) VALUES (1,'','Ramen','El ramen es una sopa cuyos ingredientes son fideos chinos, acompañados de caldo de pollo.que viene acompañado con cerdo asado, cebolla de verdeo, brotes de bambú y huevo.');";
+
+  insertComida2: string = "INSERT OR IGNORE INTO comida(id,foto,titulo,texto) VALUES (2,'','Calpis Uva','Calpis es una bebida de origen japonés no carbonatada, La bebida tiene un cierto toque, parecido al de la leche, y ligero sabor ácido, similar al yogur natural con sabor a Uva');";
+
+  insertComida3: string = "INSERT OR IGNORE INTO comida(id,foto,titulo,texto) VALUES (3,'','Anmitsu','El anmitsu es un dulce japones que esperamos estés encantado de probar, ya que está hecho de pequeños cubos de gelatina, pasta dulce de judías rojas, pastel de arroz, y una variedad de frutas y helado que te encantaran');";
+
+  insertComida4: string = "INSERT OR IGNORE INTO comida(id,foto,titulo,texto) VALUES (2,'','Mitarashi Dango','El Mitarashi dango son bolas de masa de arroz a lo cual se le llama Dango los cuales estan ensartadas en pinchos de bambú y cubiertas con un glaseado de salsa de soya dulce.');";
 
   cliente: string = "INSERT or IGNORE INTO rol(idrol, nombrerol) VALUES (1, 'Cliente');";
 
@@ -100,7 +106,7 @@ export class BdService {
 
       //creamos la BD
       this.sqlite.create({
-        name: 'delipos.db',
+        name: 'deliposa.db',
         location: 'default'
       })
         .then((db: SQLiteObject) => {
@@ -110,12 +116,12 @@ export class BdService {
         })
         .catch(e => {
           //Muestra el error
-          this.presentAlert("Error en BD: " + e);
+          //this.presentAlert("Error en BD: " + e);
         })
     })
       .catch(e => {
         //muestro el error
-        this.presentAlert("Error en Platform: " + e);
+        //this.presentAlert("Error en Platform: " + e);
       })
   }
 
@@ -123,37 +129,43 @@ export class BdService {
     try {
       //ejecutar creacion de tablas
       await this.database.executeSql(this.tablaRol, []);
-      this.presentAlert("error tabla 3")
+      //this.presentAlert("error tabla 3")
       await this.database.executeSql(this.cliente, []);
-      this.presentAlert("error insert 2")
+      //this.presentAlert("error insert 2")
       await this.database.executeSql(this.dueno, []);
-      this.presentAlert("error insert 3")
+      //this.presentAlert("error insert 3")
 
       await this.database.executeSql(this.tablaComida, []);
-      this.presentAlert("error tabla 1")
+      //this.presentAlert("error tabla 1")
       await this.database.executeSql(this.tablaUsuario, []);
-      this.presentAlert("error tabla 2")
+      //this.presentAlert("error tabla 2")
       
 
       //ejecutar insert por defecto
       await this.database.executeSql(this.insertComida, []);
-      this.presentAlert("error insert 1")
+      //this.presentAlert("error insert 1")
+      await this.database.executeSql(this.insertComida2, []);
+      //this.presentAlert("error insert 1")
+      await this.database.executeSql(this.insertComida3, []);
+      //this.presentAlert("error insert 1")
+      await this.database.executeSql(this.insertComida4, []);
+      //this.presentAlert("error insert 1")
 
       await this.database.executeSql(this.usuario1, []);
-      this.presentAlert("error insert 4")
+      //this.presentAlert("error insert 4")
       await this.database.executeSql(this.usuario2, []);
-      this.presentAlert("error insert 5")
+      //this.presentAlert("error insert 5")
       //llamar al metodo para select de mi tabla principal
       this.buscarComidas();
-      this.presentAlert("error comida")
+      //this.presentAlert("error comida")
 
       this.buscarUsuario();
-      this.presentAlert("error usuario")
+      //this.presentAlert("error usuario")
       //modificar el observable de la BD lista
       this.isDBReady.next(true);
-      this.presentAlert("todo bien")
+      //this.presentAlert("todo bien")
     } catch (e) {
-      this.presentAlert("Error en Tablas: " + e);
+      //this.presentAlert("Error en Tablas: " + e);
     }
   }
 
@@ -167,6 +179,7 @@ export class BdService {
         for (var i = 0; i < res.rows.length; i++) {
           items.push({
             id: res.rows.item(i).id,
+            foto: res.rows.item(i).foto,
             titulo: res.rows.item(i).titulo,
             texto: res.rows.item(i).texto
           })
@@ -254,11 +267,11 @@ export class BdService {
       this.presentAlert("Comida Modificada");
     })
   }
-  //eliminar comidas //revisarj
+  //eliminar comidas 
   eliminarComida(id: number) {
     return this.database.executeSql('DELETE FROM comida WHERE id = ?', [id]).then(e => {
       this.buscarComidas();
-      this.presentAlert("Comida fue Eliminada");
+      this.presentAlert("Comida Eliminada");
     })
   }
 
