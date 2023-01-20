@@ -12,7 +12,7 @@
   <ion-item fill="solid" style="margin-top: 20px;">
     <ion-label style="color: rgb(118, 117, 118);" position="floating">Nombre:</ion-label>
     <!--Cambiar el typpo de input-->
-    <ion-input [(ngModel)]="nombremod"></ion-input>
+    <ion-input [(ngModel)]="nombremod">{{Usuario[0].nombre}}</ion-input>
 
   </ion-item>
   <ion-note slot="helper">Nombre de Usuario</ion-note>

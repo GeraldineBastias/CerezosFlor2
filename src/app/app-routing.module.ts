@@ -64,12 +64,6 @@ const routes: Routes = [
     path: 'ramune',
     loadChildren: () => import('./pages/ramune/ramune.module').then( m => m.RamunePageModule)
   },
-
-  {
-    path: 'tarjeta',
-    loadChildren: () => import('./pages/tarjeta/tarjeta.module').then( m => m.TarjetaPageModule)
-  },
-
   {
     path: 'admusuarios',
     loadChildren: () => import('./pages/admusuarios/admusuarios.module').then( m => m.AdmusuariosPageModule)
@@ -79,8 +73,6 @@ const routes: Routes = [
     path: 'admcomidas',
     loadChildren: () => import('./pages/admcomidas/admcomidas.module').then( m => m.AdmcomidasPageModule)
   },
-
-
   {
     path: 'agregarcomida',
     loadChildren: () => import('./pages/agregarcomida/agregarcomida.module').then( m => m.AgregarcomidaPageModule)
@@ -113,11 +105,17 @@ const routes: Routes = [
     path: 'fotoperfil',
     loadChildren: () => import('./pages/fotoperfil/fotoperfil.module').then( m => m.FotoperfilPageModule)
   }, 
+  
+  {
+    path: 'confidueno',
+    loadChildren: () => import('./pages/confidueno/confidueno.module').then( m => m.ConfiduenoPageModule)
+  },
 
   {
     path: '**',
     loadChildren: () => import('./pages/error404/error404.module').then( m => m.Error404PageModule)
   },
+
  
 
   

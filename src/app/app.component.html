@@ -14,13 +14,20 @@
         <ion-menu-toggle>
           <ion-item routerLink="/inicio" style="color:rgb(189, 189, 189);"><ion-icon name="home"
               style="font-size: 23px; color: #f4c9da;"></ion-icon>Inicio</ion-item>
+
           <ion-item routerLink="/perfilclie" style="color:rgb(189, 189, 189);"><ion-icon name="person"
               style="font-size: 23px; color: #f4c9da;"></ion-icon> Perfil</ion-item>
+
           <ion-item routerLink="/carrito" style="color:rgb(189, 189, 189);"><ion-icon name="cart"
               style="font-size: 23px; color: #f4c9da;"></ion-icon> Canasta</ion-item>
+
           <ion-item routerLink="/menu" style="color:rgb(189, 189, 189);"><mat-icon
               style="font-size: 23px; color: #f4c9da;"> restaurant_menu</mat-icon> Menú</ion-item>
-          <ion-item  (click)="salir()" style="padding-top: 40px; color:rgb(189, 189, 189);"><ion-icon name="log-out"
+
+          <ion-item routerLink="/mapa" style="color:rgb(189, 189, 189);"><ion-icon name="map"
+              style="font-size: 23px; color: #f4c9da;"></ion-icon>Ubicación </ion-item>
+
+          <ion-item (click)="salir()" style="padding-top: 40px; color:rgb(189, 189, 189);"><ion-icon name="log-out"
               style="font-size: 23px; color: #f4c9da;"></ion-icon> Cerrar Sesión</ion-item>
 
         </ion-menu-toggle>

@@ -10,12 +10,12 @@
 
   <ion-item>
     <ion-label position="floating">Nombre Comida</ion-label>
-    <ion-input type="next" [(ngModel)]="tituloComida"></ion-input>
+    <ion-input type="next" [(ngModel)]="titulo"></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label position="floating">Información de Comida</ion-label>
-    <ion-input type="next" [(ngModel)]="textoComida"></ion-input>
+    <ion-input type="next" [(ngModel)]="texto"></ion-input>
   </ion-item>
 
   <ion-item>
@@ -28,10 +28,9 @@
 
   <ion-item>
     <ion-label position="floating">Precio de la comida</ion-label>
-    <ion-input type="number" name="precio" value="" placeholder="$4000" maxlength="6" minlength="4"
-      onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" required></ion-input>
+    <ion-input type="number" [(ngModel)]="costo" placeholder="$4000" maxlength="6" minlength="4"></ion-input>
   </ion-item>
 
-  <ion-button  [routerLink]="['/admcomidas']" shape="block" (click)="Guardar()">Agregar Comida</ion-button>
+  <ion-button   shape="block" (click)="Guardar()">Agregar Comida</ion-button>
 
 </ion-content>

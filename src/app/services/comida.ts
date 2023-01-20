@@ -3,4 +3,5 @@ export class Comida {
     foto: string = '';
     titulo: string ='';
     texto: string = '';
+    costo: number = 0;
 }

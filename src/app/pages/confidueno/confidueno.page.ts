@@ -5,26 +5,25 @@ import { BdService } from 'src/app/services/bd.service';
 import { CameraService } from 'src/app/services/camera.service';
 
 @Component({
-  selector: 'app-agregarcomida',
-  templateUrl: './agregarcomida.page.html',
-  styleUrls: ['./agregarcomida.page.scss'],
+  selector: 'app-confidueno',
+  templateUrl: './confidueno.page.html',
+  styleUrls: ['./confidueno.page.scss'],
 })
-export class AgregarcomidaPage implements OnInit {
+export class ConfiduenoPage implements OnInit {
+  onModalCancel(onModalCancel: any){
+    throw new Error ('Method not implemented.');
+  }
+  foto: any = 0;
+  usua: any [] = [];
+  Usuario: any [] = [];
 
-  titulo: string ="";
-  costo: number = 0;
-  texto: string ="";
-  foto: any;
-
-  Comida: any [] = []
-
-constructor(private router: Router, private bd: BdService, private camera: CameraService, private camara: Camera) {}
+  constructor(private router: Router,private camara: Camera, private camera: CameraService, private bd: BdService) { }
 
   ngOnInit() {
     this.bd.dbState().subscribe((res) => {
       if (res) {
         this.bd.fetchUser().subscribe(item => {
-          this.Comida = item;
+          this.Usuario = item;
         })
       }
     })
@@ -39,13 +38,19 @@ constructor(private router: Router, private bd: BdService, private camera: Camer
     });
   }
 
+  Tomarfoto() {
+    this.camera.Camera();
+    this.foto = this.camera.image;
+  }
+
+
   Galeria() {
     this.camera.Galery();
     this.foto = this.camera.image;
   }
 
   Guardar(){
-    this.bd.insertarComida(this.titulo,this.texto,this.costo,this.foto);
-    this.router.navigate(['/admcomidas']);
+    this.bd.modificarUsuarioImg(this.Usuario[0].idusuario,this.foto);
+    this.router.navigate(['/menu']);
   }
 }

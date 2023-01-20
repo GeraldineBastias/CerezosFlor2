@@ -22,16 +22,4 @@ export class PerfilcliePage implements OnInit {
     })
   }
 
-
-  irADireccion() {
-
-    //Puedo ejecutar otras acciones antes de irme al menu
-
-    this.router.navigate(['/direccion']);
-
-
-  }
-
-
-
 }

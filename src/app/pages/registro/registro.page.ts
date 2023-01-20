@@ -20,7 +20,9 @@ export class RegistroPage implements OnInit {
   fotoA=' ';
   rol= 1 ;
 
-  constructor(private bd: BdService, private activedRouter: ActivatedRoute,private router: Router, private toastController: ToastController, private alertController: AlertController) { }
+  constructor(private bd: BdService, private activedRouter: ActivatedRoute,private router: Router, private toastController: ToastController, private alertController: AlertController) { 
+
+  }
 
   ngOnInit() {
     this.bd.dbState().subscribe((res) => {
@@ -33,27 +35,34 @@ export class RegistroPage implements OnInit {
     })
   }
 
+
   ValidarTodo(){
-    if (this.nombreA.length == 0) {
-      this.presentToast("Ingrese su nombre de Usuario");
-    }else if (this.nombreA.length > 50) {
-      this.presentToast("El nombre puede contener un máximo de 50 caracteres");
-    }else if (this.correoA.length == 0) {
-      this.presentToast("Ingrese Su Correo");
-    }else if (this.direccionA.length == 0) {
-      this.presentToast("Ingrese Su Direccion");
-    }else if (this.passA.length == 0) {
-      this.presentToast("Ingrese Su Contraseña");
-    }else if (this.passA != this.passRepetir) {
-      this.presentToast("La Contraseña no coincide");
-    }else if (this.passA.length < 4 && this.passA.length > 20) {
-      this.presentToast("Su Contraseña debe tener entre 4 y 20 caracteres");
-    }
-    else {
-      this.bd.agregarUsuario( this.nombreA, this.direccionA, this.correoA, this.passA, this.fotoA , this.rol)
-      this.router.navigate(['/sesion'])
-     }
+  if (this.nombreA.length == 0) {
+    this.presentToast("Ingrese su nombre de Usuario");
+  }else if (this.nombreA.length > 50) {
+    this.presentToast("El nombre puede contener un máximo de 50 caracteres");
+  }else if (this.correoA.length == 0) {
+    this.presentToast("Ingrese Su Correo");
+  }else if (this.direccionA.length == 0) {
+    this.presentToast("Ingrese Su Direccion");
+  }else if (this.passA.length == 0 && this.passRepetir.length == 0) {
+    this.presentToast("Ingrese Su Contraseña");
+  }else if (this.passA != this.passRepetir) {
+    this.presentToast("La Contraseña no coincide");
+  }else if (this.passA.length < 4) {
+    this.presentToast("Su Contraseña debe tener entre 4 y 20 caracteres");
+  }else if (this.passA.length > 20) {
+    this.presentToast("Su Contraseña debe tener entre 4 y 20 caracteres");
   }
+  else {
+    this.bd.agregarUsuario(this.nombreA, this.direccionA, this.correoA, this.passA, this.fotoA, this.rol)
+    this.router.navigate(['/sesion'])
+  }
+}
+
+ 
+
+
 
 
   //MENSAJE//

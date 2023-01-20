@@ -11,6 +11,7 @@
 <ion-list *ngFor="let x of Comida">
   <ion-item-sliding>
     <ion-item>
+      <img src="{{ x.foto }}" alt="No hay foto">
       <h2>{{ x.titulo }}</h2>
       <p>{{ x.texto }}</p>
     </ion-item>
