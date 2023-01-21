@@ -144,8 +144,7 @@ export class BdService {
       await this.database.executeSql(this.tablaUsuario, []);
       //this.presentAlert("error tabla 2")
       
-      //ejecutar insert por defecto... 
-
+      //ejecutar insert por defecto...
 
       await this.database.executeSql(this.insertComida, []);
       //this.presentAlert("error insert 1")
@@ -159,8 +158,7 @@ export class BdService {
       //this.presentAlert("error insert 1")
       await this.database.executeSql(this.insertComida6, []);
       //this.presentAlert("error insert 1")
-
-
+      
       await this.database.executeSql(this.usuario1, []);
       this.presentAlert("error insert 4")
       await this.database.executeSql(this.usuario2, []);
@@ -253,6 +251,7 @@ export class BdService {
     })
   }
 
+
   updateUsuario(idusuario: number, nombre: string) {
     let data = [nombre, idusuario];
     return this.database.executeSql('UPDATE usuario SET nombre = ?  WHERE idusuario = ? ', data).then(res => {
@@ -318,5 +317,6 @@ export class BdService {
       this.listausuario.next(items);
     });
   }
+
 
 }

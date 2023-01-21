@@ -1,19 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+
 import { IonicModule } from '@ionic/angular';
-import { FotoperfilPageRoutingModule } from './fotoperfil-routing.module';
-import { FotoperfilPage } from './fotoperfil.page';
 
+import { CostocomidaPageRoutingModule } from './costocomida-routing.module';
 
+import { CostocomidaPage } from './costocomida.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    FotoperfilPageRoutingModule
+    CostocomidaPageRoutingModule
   ],
-  declarations: [FotoperfilPage]
+  declarations: [CostocomidaPage]
 })
-export class FotoperfilPageModule {}
+export class CostocomidaPageModule {}

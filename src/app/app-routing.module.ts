@@ -102,19 +102,26 @@ const routes: Routes = [
     loadChildren: () => import('./pages/modificarcomida/modificarcomida.module').then( m => m.ModificarcomidaPageModule)
   },
   {
-    path: 'fotoperfil',
-    loadChildren: () => import('./pages/fotoperfil/fotoperfil.module').then( m => m.FotoperfilPageModule)
-  }, 
-  
-  {
     path: 'confidueno',
     loadChildren: () => import('./pages/confidueno/confidueno.module').then( m => m.ConfiduenoPageModule)
   },
-
+  {
+    path: 'nomcomida',
+    loadChildren: () => import('./pages/nomcomida/nomcomida.module').then( m => m.NomcomidaPageModule)
+  },
+  {
+    path: 'infocomida',
+    loadChildren: () => import('./pages/infocomida/infocomida.module').then( m => m.InfocomidaPageModule)
+  },
+  {
+    path: 'costocomida',
+    loadChildren: () => import('./pages/costocomida/costocomida.module').then( m => m.CostocomidaPageModule)
+  },
   {
     path: '**',
     loadChildren: () => import('./pages/error404/error404.module').then( m => m.Error404PageModule)
   },
+
 
  
 
