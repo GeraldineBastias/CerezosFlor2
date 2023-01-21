@@ -8,7 +8,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'sesion',
+    redirectTo: 'agregarcomida',
     pathMatch: 'full'
   },
   
@@ -106,26 +106,13 @@ const routes: Routes = [
     loadChildren: () => import('./pages/confidueno/confidueno.module').then( m => m.ConfiduenoPageModule)
   },
   {
-    path: 'nomcomida',
-    loadChildren: () => import('./pages/nomcomida/nomcomida.module').then( m => m.NomcomidaPageModule)
-  },
-  {
-    path: 'infocomida',
-    loadChildren: () => import('./pages/infocomida/infocomida.module').then( m => m.InfocomidaPageModule)
-  },
-  {
-    path: 'costocomida',
-    loadChildren: () => import('./pages/costocomida/costocomida.module').then( m => m.CostocomidaPageModule)
+    path: 'fotocomida',
+    loadChildren: () => import('./pages/fotocomida/fotocomida.module').then( m => m.FotocomidaPageModule)
   },
   {
     path: '**',
     loadChildren: () => import('./pages/error404/error404.module').then( m => m.Error404PageModule)
   },
-
-
- 
-
-  
 ];
 
 @NgModule({

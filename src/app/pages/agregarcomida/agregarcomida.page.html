@@ -8,22 +8,20 @@
 <ion-content>
   <h2 class="ion-text-center" style="border-bottom: 2px solid rgb(118, 117, 118); font-size: 17px;">Agregar nueva Comida</h2>
 
-  <ion-label style="border-bottom: 2px solid rgb(118, 117, 118); font-size: 17px;text-align: left;padding-top: 10px;padding-bottom: 5px;">Foto de Comida</ion-label>
-  <div>
-    <img width="280px" height="180px" style="padding-left: 95px;" src="{{foto}}">
-    <div>
-      <ion-button class="registro-button" (click)="Galeria()">Galeria</ion-button>
-    </div>
-  </div>
-
   <ion-label style="border-bottom: 2px solid rgb(118, 117, 118); font-size: 17px;text-align: left;padding-top: 10px;padding-bottom: 5px;">Titulo Comida</ion-label>
-  <ion-item [routerLink]="['/nomcomida']" style="color:rgb(157, 157, 157);">Agregar Titulo</ion-item>
+  <ion-input [(ngModel)]="titulo" type="text" placeholder="Ramen" required
+  style="float: left; border-left: rgb(174, 105, 103) 1px solid;"></ion-input>
+  <ion-item style="color:rgb(157, 157, 157);">Agregar Titulo</ion-item>
 
   <ion-label style="border-bottom: 2px solid rgb(118, 117, 118); font-size: 17px;text-align: left;padding-top: 10px;padding-bottom: 5px;">Información de comida</ion-label>
-  <ion-item [routerLink]="['/infocomida']" style="color:rgb(157, 157, 157);">Agregar Información de Comida</ion-item>
+  <ion-input [(ngModel)]="texto" type="text" placeholder="Una buena sopa de pollo" required
+  style="float: left; border-left: rgb(174, 105, 103) 1px solid;"></ion-input>
+  <ion-item  style="color:rgb(157, 157, 157);">Agregar Información de Comida</ion-item>
 
-  <ion-label style="border-bottom: 2px solid rgb(118, 117, 118); font-size: 17px;text-align: left;padding-top: 10px;padding-bottom: 5px;">Precio de Comida</ion-label>
-  <ion-item [routerLink]="['/costocomida']" style="color:rgb(157, 157, 157);">Agregar Precio de Comida</ion-item>
+  <ion-item style="color:rgb(157, 157, 157)">
+    <ion-label position="floating" >Precio de Comida: </ion-label>
+    <ion-input [(ngModel)]="costo" type="number" value="" maxlength="5" minlength="2" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" required ></ion-input>  
+  </ion-item>
 
   <ion-button shape="block" (click)="Guardar()">Agregar Comida</ion-button>
 

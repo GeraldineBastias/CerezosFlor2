@@ -251,6 +251,14 @@ export class BdService {
     })
   }
 
+  modificarComidaImg(id: number, imagen: any) {
+    let data = [imagen, id];
+    return this.database.executeSql('UPDATE comida SET foto = ? WHERE id = ?', data).then(data2 => {
+      this.buscarComidas();
+      this.presentAlert('Imagen guardada')
+    })
+  }
+
 
   updateUsuario(idusuario: number, nombre: string) {
     let data = [nombre, idusuario];

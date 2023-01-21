@@ -14,8 +14,8 @@ export class AgregarcomidaPage implements OnInit {
   titulo: string ="";
   costo: number = 0;
   texto: string ="";
-  foto: any;
-
+  foto: string ="assets/fotodefault.jpg";
+  
   Comida: any [] = []
 
 constructor(private router: Router, private bd: BdService, private camera: CameraService, private camara: Camera) {}
@@ -23,20 +23,11 @@ constructor(private router: Router, private bd: BdService, private camera: Camer
   ngOnInit() {
     this.bd.dbState().subscribe((res) => {
       if (res) {
-        this.bd.fetchUser().subscribe(item => {
+        this.bd.fetchComidas().subscribe(item => {
           this.Comida = item;
         })
       }
     })
-    this.camera.fetchImage().subscribe(item=>{
-      this.foto = item;
-    })
-    this.camera.obser.subscribe((res: any[]) =>{
-      this.foto = res;
-      console.log(res[0]);
-    },(error: any) =>{
-      console.log(error);
-    });
   }
 
   Galeria() {
@@ -46,6 +37,6 @@ constructor(private router: Router, private bd: BdService, private camera: Camer
 
   Guardar(){
     this.bd.insertarComida(this.titulo,this.texto,this.costo,this.foto);
-    this.router.navigate(['/admcomidas']);
+    this.router.navigate(['/fotocomida']);
   }
 }

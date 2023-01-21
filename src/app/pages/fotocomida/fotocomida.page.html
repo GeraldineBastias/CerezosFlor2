@@ -1,0 +1,22 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-icon [routerLink]="['/perfildue']" name="arrow-back"
+      style="color: rgb(255, 169, 169); width: 25px; height: 25px; padding-left: 10px;"></ion-icon>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <h2 class="ion-text-center" style="border-bottom: 2px solid rgb(118, 117, 118); font-size: 17px;text-align: left;">Foto de Comida
+  </h2>
+  <div class="perfil_contenido">
+    <img  src="{{foto}}" style="width: 100px; text-align: center;">
+    <div>
+      <ion-button class="registro-button" (click)="Galeria()">Galeria</ion-button>
+    </div>
+    <div>
+      <ion-button class="registro-button" (click)="Guardar()">Guardar</ion-button>
+    </div>
+  </div>
+
+</ion-content>

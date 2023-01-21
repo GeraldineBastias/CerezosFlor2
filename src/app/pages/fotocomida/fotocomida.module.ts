@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { CostocomidaPageRoutingModule } from './costocomida-routing.module';
+import { FotocomidaPageRoutingModule } from './fotocomida-routing.module';
 
-import { CostocomidaPage } from './costocomida.page';
+import { FotocomidaPage } from './fotocomida.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    CostocomidaPageRoutingModule
+    FotocomidaPageRoutingModule
   ],
-  declarations: [CostocomidaPage]
+  declarations: [FotocomidaPage]
 })
-export class CostocomidaPageModule {}
+export class FotocomidaPageModule {}

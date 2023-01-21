@@ -1,10 +1,62 @@
 <ion-header class="ion-no-border">
   <ion-toolbar>
-    <ion-icon [routerLink]="['/menu']" name="arrow-back" style="color: rgb(255, 169, 169); width: 25px; height: 25px; padding-left: 10px;"></ion-icon>
+    <ion-icon [routerLink]="['/menu']" name="arrow-back"
+      style="color: rgb(255, 169, 169); width: 25px; height: 25px; padding-left: 10px;"></ion-icon>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <h2 style="border-bottom: 2px solid rgb(118, 117, 118); font-size: 17px;text-align: left;">Carrito</h2>
- 
+
+<!--aca va lo de la comida-->
+  <ion-card>
+    <img width="280px" height="180px" style="padding-left: 95px;" src="assets/Anmitsupanda.jpg" />
+
+    <ion-card-header>
+      <ion-card-title class="ion-text-center">Titulo</ion-card-title>
+      <ion-card-subtitle class="ion-text-center">Precio</ion-card-subtitle>
+    </ion-card-header>
+  </ion-card>
+
+  <ion-item fill="solid" style="margin-top: 20px;">
+    <ion-label style="color: rgb(118, 117, 118);" position="floating">Ingrese su Nombre:</ion-label>
+    <ion-input>
+
+    </ion-input>
+  </ion-item>
+
+  <h4 style="color: red;" class="ion-text-center"> Recuerda que de momento solo entregamos en las siguientes comunas
+  </h4>
+  <ion-item>
+    <ion-label position="floating" class="ion-padding-bottom">Seleccione su Comuna</ion-label>
+    <ion-select interface="action-sheet">
+      <ion-select-option>Cerrillos</ion-select-option>
+      <ion-select-option>Conchalí</ion-select-option>
+      <ion-select-option>Estación Central</ion-select-option>
+      <ion-select-option>Huechuraba</ion-select-option>
+      <ion-select-option>Independecia</ion-select-option>
+      <ion-select-option>La Cisterna</ion-select-option>
+      <ion-select-option>La Florida</ion-select-option>
+      <ion-select-option>Lampa</ion-select-option>
+      <ion-select-option>Las Condes</ion-select-option>
+      <ion-select-option>Providencia</ion-select-option>
+      <ion-select-option>Quinta Normal</ion-select-option>
+      <ion-select-option>La Reina</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item fill="solid" style="margin-top: 20px;">
+    <ion-label position="floating">Nombre de la Calle:</ion-label>
+    <ion-input>
+
+    </ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating" >Número de la Calle: </ion-label>
+    <ion-input type="number" value="" maxlength="5" minlength="2" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" required ></ion-input>  
+  </ion-item>
+
+  <ion-button class="registro-button" size="medium">Realizar Compra</ion-button>
+
 </ion-content>
