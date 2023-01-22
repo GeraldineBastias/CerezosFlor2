@@ -18,15 +18,6 @@ export class CambiocontraPage {
 
   constructor(public toastController: ToastController) {}
 
-  async presentToast(mensaje: string) {
-    const toast = await this.toastController.create({
-      message: mensaje,
-      duration: 2000
-  
-    });
-    toast.present();
-  }
-
   Validar(){
     if (this.correo.length == 0) {
       this.presentToast("Ingrese Su Correo");
@@ -35,4 +26,12 @@ export class CambiocontraPage {
     }
   }
 
+  async presentToast(mensaje: string) {
+    const toast = await this.toastController.create({
+      message: mensaje,
+      duration: 2000
+  
+    });
+    toast.present();
+  }
 }

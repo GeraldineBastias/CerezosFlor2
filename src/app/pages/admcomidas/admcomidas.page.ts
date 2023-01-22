@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
+import { NativeStorage } from '@awesome-cordova-plugins/native-storage/ngx';
 import { BdService } from 'src/app/services/bd.service';
 
 
@@ -12,7 +13,7 @@ export class AdmcomidasPage implements OnInit {
 
   Comida: any[] = [];
 
-  constructor(private router: Router, private bd: BdService) { }
+  constructor(public nativeStorage: NativeStorage,private router: Router, private bd: BdService) { }
 
   ngOnInit() {
     this.bd.dbState().subscribe((res) => {
@@ -24,15 +25,10 @@ export class AdmcomidasPage implements OnInit {
     })
   }
 
-  modificarDatos(id: number = 0) {
-    let navigationExtras: NavigationExtras = {
-      state: {
-        IDenviado: id,
-      }
-    }
-    this.router.navigate(['/modificarcomida'], navigationExtras);
+  modificarDatos(x: any) {
+    this.nativeStorage.setItem('IDenviado', x.id);
+    this.router.navigate(['/modificarcomida']);
   }
-  
 
   eliminarComida(x: any) {
     this.bd.eliminarComida(x.id);

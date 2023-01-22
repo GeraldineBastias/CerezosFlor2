@@ -249,6 +249,27 @@ export class BdService {
     })
   }
 
+  buscarComidasId(id: number) {
+    //realizamos la consulta a la BD
+    let data = [id];
+    return this.database.executeSql('SELECT * FROM comida WHERE id = ?', data).then(res => {
+      let items: Comida[] = [];
+      if (res.rows.length > 0) {
+        for (var i = 0; i < res.rows.length; i++) {
+          items.push({
+            id: res.rows.item(i).id,
+            foto: res.rows.item(i).foto,
+            titulo: res.rows.item(i).titulo,
+            texto: res.rows.item(i).texto,
+            costo: res.rows.item(i).costo
+          });
+        }
+      }
+      this.listaComida.next(items);
+
+    })
+  }
+
   buscarUsuario() {
     return this.database.executeSql('SELECT * FROM usuario', []).then(res => {
       let items: Usuario[] = [];

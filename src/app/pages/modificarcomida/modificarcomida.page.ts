@@ -17,7 +17,9 @@ export class ModificarcomidaPage implements OnInit {
   textoComida ="";
   costoComida: any = 0;
   idextras: any = 0;
+
   constructor(public nativeStorage: NativeStorage,private router: Router,private activedRouter: ActivatedRoute, private bd: BdService) { 
+this.GetID()
   }
 
   ngOnInit() {
@@ -34,16 +36,11 @@ export class ModificarcomidaPage implements OnInit {
     this.nativeStorage.getItem('IDenviado').then((data)=>{
       //this.presentAlert1(data);
       this.idextras = data
-    })
+   })
   }
 
   Modificarfoto(){
-    let navigationExtras: NavigationExtras = {
-      state: {
-        idenviado: this.idextras
-      }
-    }
-    this.router.navigate(['/fotocomida'], navigationExtras);
+    this.router.navigate(['/fotocomida']);
   }
     //this.nativeStorage.setItem('ComidaId', this.Comida[0].id);
     

@@ -11,11 +11,12 @@ import { MatIconModule } from '@angular/material/icon';
 import { Geolocation } from '@awesome-cordova-plugins/geolocation/ngx';
 import { SQLite } from '@awesome-cordova-plugins/sqlite/ngx';
 import { Camera } from '@awesome-cordova-plugins/camera/ngx';
+import { NativeStorage } from '@awesome-cordova-plugins/native-storage/ngx';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, BrowserAnimationsModule,MatIconModule],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },SQLite,Geolocation,Camera],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },SQLite,Geolocation,Camera,NativeStorage],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

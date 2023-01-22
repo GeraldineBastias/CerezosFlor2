@@ -15,7 +15,7 @@ export class FotocomidaPage implements OnInit {
   Comida: any[] = []
   
   constructor(public nativeStorage: NativeStorage,private activedRouter: ActivatedRoute,private router: Router, private camara: Camera, private camera: CameraService, private bd: BdService) {
-    this.GetComidaId()
+    this.GetID()
   }
 
   ngOnInit() {
@@ -42,10 +42,11 @@ export class FotocomidaPage implements OnInit {
     this.foto = this.camera.image;
   }
 
-  GetComidaId() {
-    this.nativeStorage.getItem('ComidaId').then((data)=>{
+  GetID() {
+    this.nativeStorage.getItem('IDenviado').then((data)=>{
+      //this.presentAlert1(data);
       this.idextras = data
-    })
+   })
   }
 
   Galeria() {
