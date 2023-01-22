@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Camera } from '@awesome-cordova-plugins/camera/ngx';
 import { BdService } from 'src/app/services/bd.service';
 import { CameraService } from 'src/app/services/camera.service';
-
+import { NativeStorage } from '@awesome-cordova-plugins/native-storage/ngx';
 @Component({
   selector: 'app-fotocomida',
   templateUrl: './fotocomida.page.html',
@@ -11,10 +11,12 @@ import { CameraService } from 'src/app/services/camera.service';
 })
 export class FotocomidaPage implements OnInit {
   foto: any = 0;
-
+  idextras: any = 0;
   Comida: any[] = []
   
-  constructor(private router: Router, private camara: Camera, private camera: CameraService, private bd: BdService) { }
+  constructor(public nativeStorage: NativeStorage,private activedRouter: ActivatedRoute,private router: Router, private camara: Camera, private camera: CameraService, private bd: BdService) {
+    this.GetComidaId()
+  }
 
   ngOnInit() {
     this.bd.dbState().subscribe((res) => {
@@ -40,6 +42,11 @@ export class FotocomidaPage implements OnInit {
     this.foto = this.camera.image;
   }
 
+  GetComidaId() {
+    this.nativeStorage.getItem('ComidaId').then((data)=>{
+      this.idextras = data
+    })
+  }
 
   Galeria() {
     this.camera.Galery();
@@ -47,7 +54,7 @@ export class FotocomidaPage implements OnInit {
   }
 
   Guardar(){
-    this.bd.modificarComidaImg(this.Comida[0].id,this.foto);
+    this.bd.modificarComidaImg(this.idextras,this.foto);
     this.router.navigate(['/admcomidas']);
   }
   }

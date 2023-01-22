@@ -8,7 +8,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'agregarcomida',
+    redirectTo: 'sesion',
     pathMatch: 'full'
   },
   

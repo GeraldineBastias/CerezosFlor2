@@ -37,6 +37,6 @@ constructor(private router: Router, private bd: BdService, private camera: Camer
 
   Guardar(){
     this.bd.insertarComida(this.titulo,this.texto,this.costo,this.foto);
-    this.router.navigate(['/fotocomida']);
+    this.router.navigate(['/admcomidas']);
   }
 }

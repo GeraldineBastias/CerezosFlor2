@@ -52,6 +52,7 @@ export class ConfiguracionPage implements OnInit {
 
   Guardar(){
     this.bd.modificarUsuarioImg(this.Usuario[0].idusuario,this.foto);
+    this.bd.modificarClienteImg(this.Usuario[0].idusuario,this.foto);
     this.router.navigate(['/menu']);
   }
   }

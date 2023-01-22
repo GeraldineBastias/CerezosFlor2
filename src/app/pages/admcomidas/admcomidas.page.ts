@@ -24,9 +24,15 @@ export class AdmcomidasPage implements OnInit {
     })
   }
 
-  modificarDatos() {
-    this.router.navigate(['/modificarcomida']);
+  modificarDatos(id: number = 0) {
+    let navigationExtras: NavigationExtras = {
+      state: {
+        IDenviado: id,
+      }
+    }
+    this.router.navigate(['/modificarcomida'], navigationExtras);
   }
+  
 
   eliminarComida(x: any) {
     this.bd.eliminarComida(x.id);

@@ -6,15 +6,15 @@
 </ion-header>
 
 <ion-content>
-  <h1 style="text-align: center; font-weight: bolder; color: rgb(0, 0, 0);">Ramen Clásico</h1>
+  <h1 style="text-align: center; font-weight: bolder; color: rgb(0, 0, 0);">{{Comida[0].titulo}}</h1>
   <ion-card>
     <ion-card-header>
-      <ion-card-title style="text-align: center;"><p ion-text-center>{{6000 | currency:'$':true:'4.0-0'}}</p></ion-card-title>
+      <ion-card-title style="text-align: center;">{{Comida[0].costo}}</ion-card-title>
      
     </ion-card-header>
-    <img width="280px" height="180px" style="padding-left: 95px;" src="assets/Ramen.jpg" />
-    <ion-card-subtitle style="color: rgb(128, 128, 128); text-align: center;">El ramen es una sopa cuyos ingredientes principales son los fideos chinos, acompañados de caldo de pollo.que viene acompañado con cerdo asado, cebolla de verdeo, brotes de bambú y huevo.</ion-card-subtitle>
-    <ion-button class="registro-button" size="medium">Añadir</ion-button>
+    <img width="280px" height="180px" style="padding-left: 95px;" src={{Comida[0].foto}} />
+    <ion-card-subtitle style="color: rgb(128, 128, 128); text-align: center;">{{Comida[0].texto}}</ion-card-subtitle>
+    <ion-button class="registro-button" size="medium" (click)="anadir()">Añadir</ion-button>
   </ion-card>
 
 </ion-content>

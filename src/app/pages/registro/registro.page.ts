@@ -17,7 +17,7 @@ export class RegistroPage implements OnInit {
   passA='';
   passRepetir='';
   direccionA='';
-  fotoA=' ';
+  fotoA='assets/default-avatar.png';
   rol= 1 ;
 
   constructor(private bd: BdService, private activedRouter: ActivatedRoute,private router: Router, private toastController: ToastController, private alertController: AlertController) { 
@@ -56,6 +56,7 @@ export class RegistroPage implements OnInit {
   }
   else {
     this.bd.agregarUsuario(this.nombreA, this.direccionA, this.correoA, this.passA, this.fotoA, this.rol)
+    this.bd.agregarCliente(this.nombreA, this.direccionA, this.correoA, this.passA, this.fotoA, this.rol)
     this.router.navigate(['/sesion'])
   }
 }

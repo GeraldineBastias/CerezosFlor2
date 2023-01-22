@@ -11,13 +11,21 @@
   
   <ion-item>
     <ion-label position="floating">Nombre Comida</ion-label>
-    <ion-input type="text" [(ngModel)]="tituloComida" placeholder="{{ Comida[0].titulo }}" ></ion-input>
+    <ion-input type="text" [(ngModel)]="tituloComida" ></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label position="floating">Información de Comida</ion-label>
-    <ion-input type="text" [(ngModel)]="textoComida" placeholder="{{ Comida[0].texto }}"></ion-input>
+    <ion-input type="text" [(ngModel)]="textoComida" ></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Costo de Comida</ion-label>
+    <ion-input type="text" [(ngModel)]="costoComida" ></ion-input>
   </ion-item>
 
   <ion-button class="registro-button" shape="block" (click)="Modificar()">Guardar Comida</ion-button>
+
+  <ion-button class="registro-button" shape="block" (click)="Modificarfoto()">Modificar Foto</ion-button>
+
 </ion-content>

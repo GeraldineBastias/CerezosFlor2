@@ -35,6 +35,7 @@ export class NombrePage implements OnInit {
     else if (this.nombremod == this.nombremod2 && this.nombremod.length != 0) {
       this.bd.presentAlert("Nombre cambiado")
       this.bd.updateUsuario(this.Usuario[0].idusuario, this.nombremod)
+      this.bd.updateCliente(this.Usuario[0].idusuario, this.nombremod)
       this.router.navigate(['/configuracion']);
     }
   }

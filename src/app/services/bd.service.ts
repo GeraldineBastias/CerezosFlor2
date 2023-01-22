@@ -4,6 +4,7 @@ import { AlertController, Platform } from '@ionic/angular';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Comida } from './comida';
 import { Usuario } from './usuario';
+import { Cliente } from './cliente';
 import { Rol } from './rol';
 
 @Injectable({
@@ -21,6 +22,8 @@ export class BdService {
   tablaRol: string = "CREATE TABLE IF NOT EXISTS rol(idrol INTEGER PRIMARY KEY , nombrerol VARCHAR (30) );";
 
   tablaUsuario: string = "CREATE TABLE IF NOT EXISTS usuario(idusuario INTEGER PRIMARY KEY autoincrement, nombre VARCHAR (50), clave VARCHAR (30), foto VARCHAR (150) , correo VARCHAR (50), direccion VARCHAR (75),fk_id_rol INTEGER, FOREIGN KEY(fk_id_rol) REFERENCES rol(idrol));";
+
+  tablaCliente: string = "CREATE TABLE IF NOT EXISTS cliente(idcliente INTEGER PRIMARY KEY autoincrement, nombre VARCHAR (50), clave VARCHAR (30), foto VARCHAR (150) , correo VARCHAR (50), direccion VARCHAR (75),fk_id_rol INTEGER, FOREIGN KEY(fk_id_rol) REFERENCES rol(idrol));";
 
 
   tablaComida: string = "CREATE TABLE IF NOT EXISTS comida(id INTEGER PRIMARY KEY autoincrement, foto VARCHAR (150), titulo VARCHAR(50), texto VARCHAR (100),costo INTEGER);";
@@ -41,25 +44,29 @@ export class BdService {
 
   insertComida: string = "INSERT OR IGNORE INTO comida(id,foto,titulo,texto,costo) VALUES (1,'assets/Ramen.jpg','Ramen','El ramen es una sopa cuyos ingredientes son fideos chinos, acompañados de caldo de pollo.que viene acompañado con cerdo asado, cebolla de verdeo, brotes de bambú y huevo.',5000);";
 
-  insertComida2: string = "INSERT OR IGNORE INTO comida(id,foto,titulo,texto,costo) VALUES (2,'','Calpis Uva','Calpis es una bebida de origen japonés no carbonatada, La bebida tiene un cierto toque, parecido al de la leche, y ligero sabor ácido, similar al yogur natural con sabor a Uva',4000);";
+  insertComida2: string = "INSERT OR IGNORE INTO comida(id,foto,titulo,texto,costo) VALUES (2,'assets/calpisuva.png','Calpis Uva','Calpis es una bebida de origen japonés no carbonatada, La bebida tiene un cierto toque, parecido al de la leche, y ligero sabor ácido, similar al yogur natural con sabor a Uva',4000);";
 
-  insertComida3: string = "INSERT OR IGNORE INTO comida(id,foto,titulo,texto,costo) VALUES (3,'','Anmitsu','El anmitsu es un dulce japones que esperamos estés encantado de probar, ya que está hecho de pequeños cubos de gelatina, pasta dulce de judías rojas, pastel de arroz, y una variedad de frutas y helado que te encantaran',2000);";
+  insertComida3: string = "INSERT OR IGNORE INTO comida(id,foto,titulo,texto,costo) VALUES (3,'assets/Anmitsupanda.jpg','Anmitsu','El anmitsu es un dulce japones que esperamos estés encantado de probar, ya que está hecho de pequeños cubos de gelatina, pasta dulce de judías rojas, pastel de arroz, y una variedad de frutas y helado que te encantaran',2000);";
 
-  insertComida4: string = "INSERT OR IGNORE INTO comida(id,foto,titulo,texto,costo) VALUES (4,'','Mitarashi Dango','El Mitarashi dango son bolas de masa de arroz a lo cual se le llama Dango los cuales estan ensartadas en pinchos de bambú y cubiertas con un glaseado de salsa de soya dulce.',6500);";
+  insertComida4: string = "INSERT OR IGNORE INTO comida(id,foto,titulo,texto,costo) VALUES (4,'assets/Mitarashidango.jpg','Mitarashi Dango','El Mitarashi dango son bolas de masa de arroz a lo cual se le llama Dango los cuales estan ensartadas en pinchos de bambú y cubiertas con un glaseado de salsa de soya dulce.',6500);";
 
-  insertComida5: string = "INSERT OR IGNORE INTO comida(id,foto,titulo,texto,costo) VALUES (5,'','Ramune Frutilla','El ramune es un refresco japonés, el cual es una bebida carbonatada envasada en un divertido envase, además de distintos, siendo este de sabor a frutilla.',5200);";
+  insertComida5: string = "INSERT OR IGNORE INTO comida(id,foto,titulo,texto,costo) VALUES (5,'assets/Ramunefrutilla.png','Ramune Frutilla','El ramune es un refresco japonés, el cual es una bebida carbonatada envasada en un divertido envase, además de distintos, siendo este de sabor a frutilla.',5200);";
 
-  insertComida6: string = "INSERT OR IGNORE INTO comida(id,foto,titulo,texto,costo) VALUES (6,'','Okonomiyaki','El Okonomiyaki es una comida japonesa que consiste en una masa con varios ingredientes cocinados a la plancha. De los cuales están incluidos Huevo, Mayonesa, Alga nori, Salsa okonomi, Carne picada. Creemos que te podría gustar',2600);";
+  insertComida6: string = "INSERT OR IGNORE INTO comida(id,foto,titulo,texto,costo) VALUES (6,'assets/okonomiyaki.jpg','Okonomiyaki','El Okonomiyaki es una comida japonesa que consiste en una masa con varios ingredientes cocinados a la plancha. De los cuales están incluidos Huevo, Mayonesa, Alga nori, Salsa okonomi, Carne picada. Creemos que te podría gustar',2600);";
 
   cliente: string = "INSERT or IGNORE INTO rol(idrol, nombrerol) VALUES (1, 'Cliente');";
 
   dueno: string = "INSERT or IGNORE INTO rol(idrol, nombrerol) VALUES (2, 'Dueno');";
 
-  usuario1: string = "INSERT or IGNORE INTO usuario(idusuario,nombre,clave,foto,correo,direccion,fk_id_rol) VALUES ( 1, 'Ulises', '12345', '', 'ulise@gmail.com', 'calle norte', 1 );";
+  usuario1: string = "INSERT or IGNORE INTO usuario(idusuario,nombre,clave,foto,correo,direccion,fk_id_rol) VALUES ( 1, 'Ulises', '12345', 'assets/default-avatar.png', 'ulise@gmail.com', 'calle norte', 1 );";
 
-  usuario2: string = "INSERT or IGNORE INTO usuario(idusuario,nombre,clave,foto,correo,direccion,fk_id_rol) VALUES ( 2, 'Oliver', '12345', '', 'oliver@gmail.com', 'calle sur', 2 );";
+  usuario2: string = "INSERT or IGNORE INTO usuario(idusuario,nombre,clave,foto,correo,direccion,fk_id_rol) VALUES ( 2, 'Oliver', '12345', 'assets/default-avatar.png', 'oliver@gmail.com', 'calle sur', 2 );";
 
-  usuario3: string = "INSERT or IGNORE INTO usuario(idusuario,nombre,clave,foto,correo,direccion,fk_id_rol) VALUES ( 3, 'Ana', '12345', '', 'ana@gmail.com', 'calle este', 1 );";
+  usuario3: string = "INSERT or IGNORE INTO usuario(idusuario,nombre,clave,foto,correo,direccion,fk_id_rol) VALUES ( 3, 'Ana', '12345', 'assets/default-avatar.png', 'ana@gmail.com', 'calle este', 1 );";
+
+  cliente1: string = "INSERT or IGNORE INTO cliente(idcliente,nombre,clave,foto,correo,direccion,fk_id_rol) VALUES ( 1, 'Ulises', '12345', 'assets/default-avatar.png', 'ulise@gmail.com', 'calle norte', 1 );";
+
+  cliente2: string = "INSERT or IGNORE INTO cliente(idcliente,nombre,clave,foto,correo,direccion,fk_id_rol) VALUES ( 3, 'Ana', '12345', 'assets/default-avatar.png', 'ana@gmail.com', 'calle este', 1 );";
   
   //variable para guardar los registros de cada tabla de BD
   s: Comida[] = [];
@@ -67,6 +74,9 @@ export class BdService {
 
   f: Usuario[] = [];
   listausuario: BehaviorSubject<Usuario[]> = new BehaviorSubject(this.f);
+
+  d: Cliente[] = [];
+  listacliente: BehaviorSubject<Cliente[]> = new BehaviorSubject(this.d);
   //observable para manipular el estatus de la BD
   private isDBReady: BehaviorSubject<boolean> = new BehaviorSubject(false);
 
@@ -102,6 +112,11 @@ export class BdService {
     return this.listausuario.asObservable();
   }
 
+  //Cliente//
+  fetchCliente(): Observable<Cliente[]> {
+    return this.listacliente.asObservable();
+  }
+
 
 
   crearBaseDeDatos() {
@@ -110,7 +125,7 @@ export class BdService {
 
       //creamos la BD
       this.sqlite.create({
-        name: 'prueba55.db',
+        name: 'prueba195.db',
         location: 'default'
       })
         .then((db: SQLiteObject) => {
@@ -143,6 +158,7 @@ export class BdService {
       //this.presentAlert("error tabla 1")
       await this.database.executeSql(this.tablaUsuario, []);
       //this.presentAlert("error tabla 2")
+      await this.database.executeSql(this.tablaCliente, []);
       
       //ejecutar insert por defecto...
 
@@ -160,9 +176,13 @@ export class BdService {
       //this.presentAlert("error insert 1")
       
       await this.database.executeSql(this.usuario1, []);
-      this.presentAlert("error insert 4")
+      //this.presentAlert("error insert 4")
       await this.database.executeSql(this.usuario2, []);
-      this.presentAlert("error insert 5")
+      //this.presentAlert("error insert 5")
+      await this.database.executeSql(this.cliente1, []);
+      //this.presentAlert("error insert 4")
+      await this.database.executeSql(this.cliente2, []);
+      //this.presentAlert("error insert 5")
 
       await this.database.executeSql(this.usuario3, []);
       //this.presentAlert("error insert 6")
@@ -173,7 +193,7 @@ export class BdService {
 
       this.buscarUsuario();
       //this.presentAlert("error usuario")
-
+      this.buscarCliente();
       //modificar el observable de la BD lista
       this.isDBReady.next(true);
       //this.presentAlert("todo bien")
@@ -205,6 +225,29 @@ export class BdService {
     })
   }
 
+  buscarCliente() {
+    return this.database.executeSql('SELECT * FROM cliente', []).then(res => {
+      //variable para almacenar informacion
+      let items: Cliente[] = [];
+      //verifica la cantidad de fila que se genere
+      if (res.rows.length > 0) {
+        //recorre el resulset para guardar en la lista
+        for (var i = 0; i < res.rows.length; i++) {
+          items.push({
+            idcliente: res.rows.item(i).idcliente,
+            nombre: res.rows.item(i).nombre,
+            clave: res.rows.item(i).clave,
+            foto: res.rows.item(i).foto,
+            correo: res.rows.item(i).correo,
+            direccion: res.rows.item(i).direccion,
+            fk_id_rol: res.rows.item(i).fk_id_rol
+          });
+        }
+      }
+      //actualizamos el observable
+      this.listacliente.next(items);
+    })
+  }
 
   buscarUsuario() {
     return this.database.executeSql('SELECT * FROM usuario', []).then(res => {
@@ -229,25 +272,32 @@ export class BdService {
 
   agregarUsuario(nombre: string, correo: string,foto: string,direccion: string, clave: string, fk_id_rol: number = 1) {
     let data = [nombre, clave, foto, correo, direccion , fk_id_rol,];
-    return this.database.executeSql('INSERT or IGNORE INTO  usuario ( nombre, clave, foto, correo, direccion, fk_id_rol,) VALUES (?, ?, ?, ?, ?, ?)', data).then(res => {
+    return this.database.executeSql('INSERT INTO usuario ( nombre, clave, foto, correo, direccion, fk_id_rol,) VALUES (?, ?, ?, ?, ?, ?)', data).then(res => {
       this.buscarUsuario();
       this.presentAlert("Cuenta Creada Exitosamente");
     });
   }
 
-  agregarUsuario2(idusuario: number, nombre: string,  clave: string,  fk_id_rol: number = 1) {
-    let data = [idusuario, nombre, clave, fk_id_rol];
-    return this.database.executeSql('INSERT or IGNORE INTO  usuario (idusuario, nombre, clave, fk_id_rol) VALUES (?, ?, ?, ?)', data).then(res => {
-      this.buscarUsuario();
+  agregarCliente(nombre: string, correo: string,foto: string,direccion: string, clave: string, fk_id_rol: number = 1) {
+    let data = [nombre, clave, foto, correo, direccion , fk_id_rol,];
+    return this.database.executeSql('INSERT INTO cliente ( nombre, clave, foto, correo, direccion, fk_id_rol,) VALUES (?, ?, ?, ?, ?, ?)', data).then(res => {
+      this.buscarCliente();
     });
   }
 
-  //modificar la imagen de usuarios
+  //modificar la imagen de usuarios 
   modificarUsuarioImg(idusuario: number, imagen: any) {
     let data = [imagen, idusuario];
     return this.database.executeSql('UPDATE usuario SET foto = ? WHERE idusuario = ?', data).then(data2 => {
       this.buscarUsuario();
       this.presentAlert('Imagen guardada')
+    })
+  }
+
+  modificarClienteImg(idcliente: number, imagen: any) {
+    let data = [imagen, idcliente];
+    return this.database.executeSql('UPDATE cliente SET foto = ? WHERE idcliente = ?', data).then(data2 => {
+      this.buscarCliente();
     })
   }
 
@@ -264,6 +314,13 @@ export class BdService {
     let data = [nombre, idusuario];
     return this.database.executeSql('UPDATE usuario SET nombre = ?  WHERE idusuario = ? ', data).then(res => {
       this.buscarUsuario();
+    });
+  }
+
+  updateCliente(idcliente: number, nombre: string) {
+    let data = [nombre, idcliente];
+    return this.database.executeSql('UPDATE cliente SET nombre = ?  WHERE idcliente = ? ', data).then(res => {
+      this.buscarCliente();
     });
   }
 
@@ -285,9 +342,9 @@ export class BdService {
   }
 
   //modificar la comida
-  modificarComida(id: number, titulo: string, texto: string) {
-    let data = [titulo, texto, id];
-    return this.database.executeSql('UPDATE comida SET titulo= ?,texto= ? WHERE id = ?', data).then(res2 => {
+  modificarComida(id: number, titulo: string, texto: string, costo: number = 0) {
+    let data = [titulo,texto,costo,id];
+    return this.database.executeSql('UPDATE comida SET titulo= ?,texto= ?,costo= ? WHERE id = ?', data).then(res2 => {
       this.buscarComidas();
       this.presentAlert("Comida Modificada");
     })
