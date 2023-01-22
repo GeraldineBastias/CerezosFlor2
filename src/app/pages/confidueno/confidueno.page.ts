@@ -51,6 +51,6 @@ export class ConfiduenoPage implements OnInit {
 
   Guardar(){
     this.bd.modificarUsuarioImg(this.Usuario[0].idusuario,this.foto);
-    this.router.navigate(['/menu']);
+    this.router.navigate(['/confidueno']);
   }
 }
