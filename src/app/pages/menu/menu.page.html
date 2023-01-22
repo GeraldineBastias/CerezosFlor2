@@ -11,7 +11,7 @@
   <h1 style="text-align: center; font-weight: bolder; color: rgb(95, 95, 95);">Menú</h1>
 
   <ion-list *ngFor="let x of Comida">
-    <ion-card [routerLink]="['/ramen']">
+    <ion-card (click)="EnviarComida(x,x,x,x,x)">
       <img width="280px" height="180px" style="padding-left: 95px;" src="{{ x.foto }}" alt="No hay foto">
       <ion-card-header>
         <ion-card-title>{{ x.titulo }}</ion-card-title>

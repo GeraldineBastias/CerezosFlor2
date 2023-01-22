@@ -10,11 +10,11 @@
 
 <!--aca va lo de la comida-->
   <ion-card>
-    <img width="280px" height="180px" style="padding-left: 95px;" src="assets/Anmitsupanda.jpg" />
+    <img width="280px" height="180px" style="padding-left: 95px;" src="{{Fotoextras}}" />
 
     <ion-card-header>
-      <ion-card-title class="ion-text-center">Titulo</ion-card-title>
-      <ion-card-subtitle class="ion-text-center">Precio</ion-card-subtitle>
+      <ion-card-title class="ion-text-center">{{Tituextras}}</ion-card-title>
+      <ion-card-subtitle class="ion-text-center">${{Costoextras}}</ion-card-subtitle>
     </ion-card-header>
   </ion-card>
 
@@ -57,6 +57,6 @@
     <ion-input type="number" value="" maxlength="5" minlength="2" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" required ></ion-input>  
   </ion-item>
 
-  <ion-button class="registro-button" size="medium">Realizar Compra</ion-button>
+  <ion-button class="registro-button" size="medium" (click)="Boton()">Realizar Compra</ion-button>
 
 </ion-content>

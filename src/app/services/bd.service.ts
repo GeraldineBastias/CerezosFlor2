@@ -125,7 +125,7 @@ export class BdService {
 
       //creamos la BD
       this.sqlite.create({
-        name: 'prueba195.db',
+        name: 'prueba17895.db',
         location: 'default'
       })
         .then((db: SQLiteObject) => {
