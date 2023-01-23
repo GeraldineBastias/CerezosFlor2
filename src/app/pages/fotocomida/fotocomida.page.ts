@@ -4,6 +4,7 @@ import { Camera } from '@awesome-cordova-plugins/camera/ngx';
 import { BdService } from 'src/app/services/bd.service';
 import { CameraService } from 'src/app/services/camera.service';
 import { NativeStorage } from '@awesome-cordova-plugins/native-storage/ngx';
+import { ToastController } from '@ionic/angular';
 @Component({
   selector: 'app-fotocomida',
   templateUrl: './fotocomida.page.html',
@@ -14,7 +15,7 @@ export class FotocomidaPage implements OnInit {
   idextras: any = 0;
   Comida: any[] = []
   
-  constructor(public nativeStorage: NativeStorage,private activedRouter: ActivatedRoute,private router: Router, private camara: Camera, private camera: CameraService, private bd: BdService) {
+  constructor(public nativeStorage: NativeStorage,private activedRouter: ActivatedRoute,private router: Router, private camara: Camera, private camera: CameraService, private bd: BdService,private toastController: ToastController) {
     this.GetID()
   }
 
@@ -56,6 +57,15 @@ export class FotocomidaPage implements OnInit {
 
   Guardar(){
     this.bd.modificarComidaImg(this.idextras,this.foto);
+    this.presentToast("Se ha cambiado la foto con exito");
     this.router.navigate(['/admcomidas']);
   }
+  async presentToast(mensaje: string) {
+    const toast = await this.toastController.create({
+      message: mensaje,
+      duration: 2000
+  
+    });
+    toast.present();
   }
+}

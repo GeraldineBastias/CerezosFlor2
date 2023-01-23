@@ -58,15 +58,15 @@ export class BdService {
 
   dueno: string = "INSERT or IGNORE INTO rol(idrol, nombrerol) VALUES (2, 'Dueno');";
 
-  usuario1: string = "INSERT or IGNORE INTO usuario(idusuario,nombre,clave,foto,correo,direccion,fk_id_rol) VALUES ( 1, 'Ulises', '12345', 'assets/default-avatar.png', 'ulise@gmail.com', 'calle norte', 1 );";
+  usuario1: string = "INSERT or IGNORE INTO usuario(idusuario,nombre,clave,foto,correo,direccion,fk_id_rol) VALUES ( 1, 'Ulises', '12345', 'assets/avatar.png', 'ulise@gmail.com', 'calle norte', 1 );";
 
-  usuario2: string = "INSERT or IGNORE INTO usuario(idusuario,nombre,clave,foto,correo,direccion,fk_id_rol) VALUES ( 2, 'Oliver', '12345', 'assets/default-avatar.png', 'oliver@gmail.com', 'calle sur', 2 );";
+  usuario2: string = "INSERT or IGNORE INTO usuario(idusuario,nombre,clave,foto,correo,direccion,fk_id_rol) VALUES ( 2, 'Oliver', '12345', 'assets/avatar.png', 'oliver@gmail.com', 'calle sur', 2 );";
 
-  usuario3: string = "INSERT or IGNORE INTO usuario(idusuario,nombre,clave,foto,correo,direccion,fk_id_rol) VALUES ( 3, 'Ana', '12345', 'assets/default-avatar.png', 'ana@gmail.com', 'calle este', 1 );";
+  usuario3: string = "INSERT or IGNORE INTO usuario(idusuario,nombre,clave,foto,correo,direccion,fk_id_rol) VALUES ( 3, 'Ana', '12345', 'assets/avatar.png', 'ana@gmail.com', 'calle este', 1 );";
 
-  cliente1: string = "INSERT or IGNORE INTO cliente(idcliente,nombre,clave,foto,correo,direccion,fk_id_rol) VALUES ( 1, 'Ulises', '12345', 'assets/default-avatar.png', 'ulise@gmail.com', 'calle norte', 1 );";
+  cliente1: string = "INSERT or IGNORE INTO cliente(idcliente,nombre,clave,foto,correo,direccion,fk_id_rol) VALUES ( 1, 'Ulises', '12345', 'assets/avatar.png', 'ulise@gmail.com', 'calle norte', 1 );";
 
-  cliente2: string = "INSERT or IGNORE INTO cliente(idcliente,nombre,clave,foto,correo,direccion,fk_id_rol) VALUES ( 3, 'Ana', '12345', 'assets/default-avatar.png', 'ana@gmail.com', 'calle este', 1 );";
+  cliente2: string = "INSERT or IGNORE INTO cliente(idcliente,nombre,clave,foto,correo,direccion,fk_id_rol) VALUES ( 3, 'Ana', '12345', 'assets/avatar.png', 'ana@gmail.com', 'calle este', 1 );";
   
   //variable para guardar los registros de cada tabla de BD
   s: Comida[] = [];
@@ -125,7 +125,7 @@ export class BdService {
 
       //creamos la BD
       this.sqlite.create({
-        name: 'prueba17895.db',
+        name: 'prueba178895.db',
         location: 'default'
       })
         .then((db: SQLiteObject) => {

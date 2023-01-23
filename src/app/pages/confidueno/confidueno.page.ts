@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Camera } from '@awesome-cordova-plugins/camera/ngx';
+import { ToastController } from '@ionic/angular';
 import { BdService } from 'src/app/services/bd.service';
 import { CameraService } from 'src/app/services/camera.service';
 
@@ -17,7 +18,7 @@ export class ConfiduenoPage implements OnInit {
   usua: any [] = [];
   Usuario: any [] = [];
 
-  constructor(private router: Router,private camara: Camera, private camera: CameraService, private bd: BdService) { }
+  constructor(private router: Router,private camara: Camera, private camera: CameraService, private bd: BdService,private toastController: ToastController) { }
 
   ngOnInit() {
     this.bd.dbState().subscribe((res) => {
@@ -51,6 +52,16 @@ export class ConfiduenoPage implements OnInit {
 
   Guardar(){
     this.bd.modificarUsuarioImg(this.Usuario[0].idusuario,this.foto);
+    this.presentToast("Se ha cambiado la foto con exito");
     this.router.navigate(['/confidueno']);
+  }
+
+  async presentToast(mensaje: string) {
+    const toast = await this.toastController.create({
+      message: mensaje,
+      duration: 2000
+  
+    });
+    toast.present();
   }
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastController } from '@ionic/angular';
 import { BdService } from 'src/app/services/bd.service';
 
 @Component({
@@ -13,7 +14,7 @@ export class ContraperPage implements OnInit {
   clavemod2 = '';
 
   Usuario: any[] = []
-  constructor(private bd: BdService, private router: Router) { }
+  constructor(private bd: BdService, private router: Router,private toastController: ToastController) { }
 
   ngOnInit() {
     this.bd.dbState().subscribe((res) => {
@@ -34,12 +35,19 @@ export class ContraperPage implements OnInit {
       this.bd.presentAlert("Ingrese clave nueva ")
     }
     else if (this.clavemod == this.clavemod2 && this.clavemod.length != 0) {
-      this.bd.presentAlert("Claves cambiada")
+      this.presentToast("Se ha cambiado la contraseña con exito");
+
       this.bd.updateUsuarioclave(this.Usuario[0].idusuario, this.clavemod)
       this.router.navigate(['/configuracion']);
-      
     }
-
+  }
+  async presentToast(mensaje: string) {
+    const toast = await this.toastController.create({
+      message: mensaje,
+      duration: 2000
+  
+    });
+    toast.present();
   }
 
 }

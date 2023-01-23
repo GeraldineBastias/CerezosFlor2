@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import { NativeStorage } from '@awesome-cordova-plugins/native-storage/ngx';
+import { ToastController } from '@ionic/angular';
 //import { NativeStorage } from '@awesome-cordova-plugins/native-storage/ngx';
 import { BdService } from 'src/app/services/bd.service';
 
@@ -18,7 +19,7 @@ export class ModificarcomidaPage implements OnInit {
   costoComida: any = 0;
   idextras: any = 0;
 
-  constructor(public nativeStorage: NativeStorage,private router: Router,private activedRouter: ActivatedRoute, private bd: BdService) { 
+  constructor(public nativeStorage: NativeStorage,private router: Router,private activedRouter: ActivatedRoute, private bd: BdService,private toastController: ToastController) { 
 this.GetID()
   }
 
@@ -47,7 +48,16 @@ this.GetID()
 
   Modificar(){
     this.bd.modificarComida(this.idextras,this.tituloComida,this.textoComida, this.costoComida);
+    this.presentToast("Se ha modificado la comida con exito");
     this.router.navigate(['/admcomidas']);
+  }
+  async presentToast(mensaje: string) {
+    const toast = await this.toastController.create({
+      message: mensaje,
+      duration: 2000
+  
+    });
+    toast.present();
   }
 
 }
