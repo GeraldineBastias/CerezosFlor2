@@ -29,10 +29,10 @@ export class ContraperPage implements OnInit {
   
   modificarclave() {
     if (this.clavemod != this.clavemod2 ) {
-      this.bd.presentAlert("Claves no iguales ")
+      this.bd.presentToast("Claves no iguales ")
     }
     else if (this.clavemod.length == 0 && this.clavemod2.length == 0){
-      this.bd.presentAlert("Ingrese clave nueva ")
+      this.bd.presentToast("Ingrese clave nueva ")
     }
     else if (this.clavemod == this.clavemod2 && this.clavemod.length != 0) {
       this.presentToast("Se ha cambiado la contraseña con exito");

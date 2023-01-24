@@ -29,7 +29,6 @@ export class RegistroPage implements OnInit {
       if (res) {
         this.bd.fetchUser().subscribe(item => {
           this.Usuario = item;
-
         })
       }
     })

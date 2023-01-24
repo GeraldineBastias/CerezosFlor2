@@ -14,8 +14,8 @@
     <ion-card (click)="EnviarComida(x,x,x,x,x)">
       <img width="280px" height="180px" style="padding-left: 95px;" src="{{ x.foto }}" alt="No hay foto">
       <ion-card-header>
-        <ion-card-title>{{ x.titulo }}</ion-card-title>
-        <ion-card-subtitle>${{ x.costo }}</ion-card-subtitle>
+        <ion-card-title class="ion-text-center">{{ x.titulo }}</ion-card-title>
+        <ion-card-subtitle class="ion-text-center">${{ x.costo }}</ion-card-subtitle>
       </ion-card-header>
       <ion-card-content>{{ x.texto }}</ion-card-content>
     </ion-card>

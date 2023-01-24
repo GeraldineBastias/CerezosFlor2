@@ -28,10 +28,10 @@ export class NombrePage implements OnInit {
 
   modificarnombre() {
     if (this.nombremod != this.nombremod2 ) {
-      this.bd.presentAlert("Nombres no iguales ")
+      this.bd.presentToast("Nombres no iguales ")
     }
     else if (this.nombremod.length == 0 && this.nombremod2.length == 0){
-      this.bd.presentAlert("Ingrese Nombre")
+      this.bd.presentToast("Ingrese Nombre")
     }
     else if (this.nombremod == this.nombremod2 && this.nombremod.length != 0) {
       this.presentToast("Se ha cambiado el nombre con exito");
