@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { BdService } from 'src/app/services/bd.service';
 import { ToastController } from '@ionic/angular';
 import { NativeStorage } from '@awesome-cordova-plugins/native-storage/ngx';
+
 @Component({
   selector: 'app-carrito',
   templateUrl: './carrito.page.html',
