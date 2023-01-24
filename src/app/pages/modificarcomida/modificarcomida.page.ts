@@ -16,7 +16,7 @@ export class ModificarcomidaPage implements OnInit {
 
   tituloComida ="";
   textoComida ="";
-  costoComida: any = 0;
+  costoComida: any;
   idextras: any = 0;
 
   constructor(public nativeStorage: NativeStorage,private router: Router,private activedRouter: ActivatedRoute, private bd: BdService,private toastController: ToastController) { 

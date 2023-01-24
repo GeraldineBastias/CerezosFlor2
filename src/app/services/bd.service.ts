@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { SQLite, SQLiteObject } from '@awesome-cordova-plugins/sqlite/ngx';
-import { AlertController, Platform } from '@ionic/angular';
+import { AlertController, Platform, ToastController } from '@ionic/angular';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Comida } from './comida';
 import { Usuario } from './usuario';
@@ -82,20 +82,19 @@ export class BdService {
 
 
 
-  constructor(private sqlite: SQLite, private platform: Platform, public alerController: AlertController) {
+  constructor( private toastController: ToastController,private sqlite: SQLite, private platform: Platform, public alerController: AlertController) {
     this.crearBaseDeDatos();
   }
 
-
-  async presentAlert(msj: string) {
-    const alert = await this.alerController.create({
-      header: 'Alert',
-      subHeader: msj,
-      buttons: ['OK'],
+  async presentToast(mensaje: string) {
+    const toast = await this.toastController.create({
+      message: mensaje,
+      duration: 2000
+  
     });
-
-    await alert.present();
+    toast.present();
   }
+
 
   //metodo que indique el estado de la BD
   dbState() {
@@ -295,7 +294,7 @@ export class BdService {
     let data = [nombre, clave, foto, correo, direccion , fk_id_rol,];
     return this.database.executeSql('INSERT INTO usuario ( nombre, clave, foto, correo, direccion, fk_id_rol,) VALUES (?, ?, ?, ?, ?, ?)', data).then(res => {
       this.buscarUsuario();
-      this.presentAlert("Cuenta Creada Exitosamente");
+      this.presentToast("Cuenta Creada Exitosamente");
     });
   }
 
@@ -311,7 +310,7 @@ export class BdService {
     let data = [imagen, idusuario];
     return this.database.executeSql('UPDATE usuario SET foto = ? WHERE idusuario = ?', data).then(data2 => {
       this.buscarUsuario();
-      this.presentAlert('Imagen guardada')
+      this.presentToast('Imagen guardada')
     })
   }
 
@@ -326,7 +325,7 @@ export class BdService {
     let data = [imagen, id];
     return this.database.executeSql('UPDATE comida SET foto = ? WHERE id = ?', data).then(data2 => {
       this.buscarComidas();
-      this.presentAlert('Imagen guardada')
+      this.presentToast('Imagen guardada')
     })
   }
 
@@ -358,7 +357,7 @@ export class BdService {
     let data = [foto, titulo, texto, costo];
     return this.database.executeSql('INSERT INTO comida(foto,titulo,texto,costo) VALUES (?,?,?,?)', data).then(res => {
       this.buscarComidas();
-      this.presentAlert("Comida Registrada");
+      this.presentToast("Comida Registrada");
     })
   }
 
@@ -367,7 +366,7 @@ export class BdService {
     let data = [titulo,texto,costo,id];
     return this.database.executeSql('UPDATE comida SET titulo= ?,texto= ?,costo= ? WHERE id = ?', data).then(res2 => {
       this.buscarComidas();
-      this.presentAlert("Comida Modificada");
+      this.presentToast("Comida Modificada");
     })
   }
 
@@ -375,7 +374,7 @@ export class BdService {
   eliminarComida(id: number) {
     return this.database.executeSql('DELETE FROM comida WHERE id = ?', [id]).then(e => {
       this.buscarComidas();
-      this.presentAlert("Comida Eliminada");
+      this.presentToast("Comida Eliminada");
     })
   }
 

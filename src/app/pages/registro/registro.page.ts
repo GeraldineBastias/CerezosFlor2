@@ -18,7 +18,7 @@ export class RegistroPage implements OnInit {
   passRepetir='';
   direccionA='';
   fotoA='assets/default-avatar.png';
-  rol= 1 ;
+  rol = 1 ;
 
   constructor(private bd: BdService, private activedRouter: ActivatedRoute,private router: Router, private toastController: ToastController, private alertController: AlertController) { 
 
@@ -55,8 +55,8 @@ export class RegistroPage implements OnInit {
     this.presentToast("Su Contraseña debe tener entre 4 y 20 caracteres");
   }
   else {
-    this.bd.agregarUsuario(this.nombreA, this.direccionA, this.correoA, this.passA, this.fotoA, this.rol)
-    this.bd.agregarCliente(this.nombreA, this.direccionA, this.correoA, this.passA, this.fotoA, this.rol)
+    this.bd.agregarUsuario(this.nombreA, this.correoA, this.fotoA, this.direccionA, this.passA, this.rol)
+    this.bd.agregarCliente(this.nombreA, this.correoA, this.fotoA, this.direccionA, this.passA, this.rol)
     this.router.navigate(['/sesion'])
   }
 }
